@@ -43,5 +43,27 @@ h1 {
 
 li:hover{
     font-size: 3em;
-    margin-bottom: -16px;
+}
+.skills {
+    display: flex;
+    flex-direction: row;
+    gap: 10em;
+    margin: 20px;
+    margin-bottom: 100px;
+    
+}
+
+.programming {
+    
+}
+
+.web_techniques {
+    
+}
+
+.tools {
+    
+}
+h2 {
+    margin-left: 20px;
 }
