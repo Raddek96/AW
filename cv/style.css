@@ -5,19 +5,41 @@
     font-style: 'EB Garamond', serif;
 }
 
-#foto-perfil {
+.cabecera {
+   
+    text-align: center;
+}
+.foto-perfil {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    margin: 20px auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 .redes-sociales {
     list-style: none;
+    margin: 30px;
+    
+}
+.redes-sociales li {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 2em;
+    margin-bottom: 30px;
+    transition: all 0.5s;
+    border: 2px solid red;
+    
+}
+.cabecera__container  {
+  background: none;
 }
 
-.cabecera__container  {
-    display: flex;
-    flex-direction: row;
-    gap: 2em;
+h1 {
+    margin-bottom: 20px;
+}
+
+li:hover{
+    font-size: 3em;
+    margin-bottom: -16px;
 }
