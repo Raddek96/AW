@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+
+}
+
+
+
+.tabla-horario {
+    margin: 20px auto;
+    font-size: 2em;
+    text-align: center;
+}
+
+.tarde {
+    border: 0;
+    padding: 10px 0;
+    padding-top: 20px;
+    
+}
+th, td {
+    padding: 10px;
+    width: 220px;
+    height: 10px;
+    
+}
+ 
+
+/*Coloreando asignaturas */
+
+.si {
+    background: rgba(255, 0, 0, 0.7);
+
+}
+
+.aw {
+    background: rgba(255, 255, 0, 0.7);
+}
+
+.sr {
+    background: rgba(0, 255, 0, 0.7);
+}
+
+.sor {
+    background-color: rgba(0, 0, 255, 0.7);
+}
+.fol {
+    background-color: rgba(128, 43, 226, 0.7);
+}
+
+.profes {
+    text-align: center;
+    margin: 30px;
+   
+}
+
+.profes__ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.profes__ul li {
+    padding: 10px;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    
+}
+
+
+
+
+
+
+
