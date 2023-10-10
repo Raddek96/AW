@@ -1,2 +1,3 @@
 # AW
-Tareas de AW 2SMR
+En este repositorio voy a subir mis trabajos de Aplicaciones WEB
+@Raddek96
