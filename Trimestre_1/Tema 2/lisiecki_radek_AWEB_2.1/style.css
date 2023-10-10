@@ -1,0 +1,52 @@
+/*Tarea 2.1 - Selectores*/
+/*----------------------*/
+
+/*Todos los parágrafos de la página*/
+* {
+    color: blue;
+}
+
+/* Todos los parágrafos de la página de clase "especial" */
+p.especial {
+    color: blue;
+}
+
+/* Todas las cabeceras de los tres primeros niveles */
+h1, h2, h3 {
+    color: blue;
+}
+
+/* Todos los elementos de la clase "destacada" */
+.destacada {
+    color: blue;
+}
+
+/* Todos los parágrafos de la página y los elementos strong de la clase "destacada" */
+p, strong.destacada {
+    color: blue;
+}
+
+/* Todos los parágrafos de la página y los elementos de la clase "destacada" */
+p, .destacada {
+    color: blue;
+}
+
+/* Los links visitados */
+a:visited {
+    color: blue;
+}
+
+/* El link activa */
+a:active {
+    color: blue;
+}
+
+/* Los links no visitados  */
+a:link {
+    color: blue;
+}
+
+/* El link sobre el cual el usuario coloca el puntero */
+a:hover {
+    color: blue;
+}
