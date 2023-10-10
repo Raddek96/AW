@@ -1,0 +1,61 @@
+h1{
+    text-align: center;
+    /* border: 1px solid white; */
+    border-width: 2px;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 50%;
+    color: black;
+    font-weight: 1000;
+    padding: auto;
+    font-size: 50px;
+}
+
+body{
+    background-image: url(fondo-formulario.jpg);
+    background-size: cover;
+    color: white;
+
+    
+}
+form{
+    text-align: center;
+    padding: auto;
+    width: 50%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    background-color: gray;
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: inset;
+    padding-bottom: 50px;
+    
+}
+
+input{
+    border-radius: 7px;
+}
+
+p{
+    text-align: center;
+}
+
+.formulario{
+    width: 70%;
+    color: whitesmoke;
+}
+
+footer{
+    background-color: grey;
+    margin: 0 auto;
+    border-radius: 10px;
+    width: 90%;
+    padding: 30px 10px;
+    font-style: oblique;
+}
+
+.enviar{
+
+    width: 100%;
+}

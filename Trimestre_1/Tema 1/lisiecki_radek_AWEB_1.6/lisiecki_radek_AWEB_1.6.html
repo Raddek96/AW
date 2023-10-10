@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Formulario (Tarefa 1.6)</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="lisiecki_radek_AWEB_1.6.css"/>
+    </head>
+
+    <body>
+        <header id="inicio">
+            <h1>FORMULARIO DE REGISTRO</h1>
+            <p>Introduce tus datos a continuación para registrarte</p>
+            </section>
+        </header>
+            <hr class="principal" id="principal">
+
+        <main>
+            <form name="formulario">
+                <section>
+                    <h2>Datos personales</h2>
+                    <label for="nombre">Nombre</label><br>
+                    <input type="text" name="nombre" placeholder="David" required /><br><br>
+
+                    <label for="apellidos">Apellidos</label><br>
+                    <input type="text" name="apellidos" placeholder="Remeseiro" required /><br><br>
+
+                    <label for="email">Correo electrónico</label><br>
+                    <input type="email" name="email" placeholder="dremeseiro12@gmail.com" required /><br><br>
+
+                    <label for="tel">Teléfono</label><br>
+                    <input type="tel" name="telefono" placeholder="666 88 87 77" min="9" max="9" required /><br><br>
+
+                    <label for="fechaNacimiento">Fecha de nacimineto</label><br>
+                    <input type="date" name="fechaNacimiento" required /><br><br>
+                    </section>
+
+                    <hr class="formulario id="formulario">
+
+                    <section>
+                        <h2>Datos de acceso</h2>
+
+                        <label for="usuario">Nombre de usuario</label><br>
+                        <input type="text" name="usuario" placeholder="David12" required/><br><br>
+
+                        <label for="contraseña">Contraseña</label><br>
+                        <input type="password" name="contraseña"  min="8" placeholder="********" required/><br><br>
+
+                        <label for="sexo">Género</label><br>
+                        <input type="radio" name="sexo" value="masculino"/><label>Masculino</label>
+                        <input type="radio" name="sexo" value="femenino"/><label>Femenino</label>
+                        <input type="radio" name="sexo" value="otro"/><label>Otro</label><br><br>
+
+                        <label>¿Por qué te estás registrando en nuestra página?</label><br>
+                        <input type="checkbox"/><label>Soy alumno</label><br>
+                        <input type="checkbox"/><label>Soy profesor</label><br>
+                        <input type="checkbox"/><label>Busco información</label><br>
+                        <input type="checkbox"/><label>Otro</label><br>
+                        <textarea rows="5" cols="30" placeholder="Me registro en esta página porque..."></textarea><br><br>
+
+                        <label>Provincia</label>
+                        <select>
+                            <option selected="selected" disabled="disabled">~Selecciona una opción~</option>
+                            <option value="1">Pontevedra</option>
+                            <option value="2">A coruña</option>
+                            <option value="3">Ourense</option>
+                            <option value="4">Lugo</option>
+
+                        </select><br><br>
+
+                        <label for="archivo">Sube una foto tuya...</label><br>
+                        <input type="file" name="archivo"/><br><br>
+
+                        <input type="reset" value="Borrar datos del formulario"/><br><br>
+                        <input type="submit" value="Crear cuenta" class="enviar"/><br><br>
+                        <a href="https://google.es">Ya tengo cuenta (iniciar sesión)</a>
+
+
+
+
+
+                    </section>
+
+            </form>
+        </main>
+        <footer>
+            <a href="https://policies.google.com/privacy?hl=es">Política de privacidad</a>
+            <a href="#inicio">Volver al Inicio</a>
+            
+        </footer>
+            
+
+    </body>
+
+</html>
