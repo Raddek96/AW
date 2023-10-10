@@ -1,0 +1,20 @@
+/* Tarea 2.2 - Propiedades de tamaño, fuente y párrafo */
+/* --------------------------------------------------- */
+
+body {
+    color: blue;
+    font-size: 12pt;
+    font-family: arial;
+    line-height: 2em;
+}
+
+p {
+    /* largura 400px */
+    text-align: justify;
+
+}
+
+h1 {
+    color: rgb(255, 0, 0);
+    
+}
