@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+p.dibujo {
+    text-align: center;
+}
+
+body {
+    width: 100%;
+}
+
+div.container {
+    display: flex;
+}
+img.sombrero {
+    margin: 0 auto;
+}
+
+
+
+h1.titulo {
+    text-align: center;
+}
+
+a.email {
+    margin: 0 auto;
+}
+
+span.vacio {
+    color: transparent;
+}
