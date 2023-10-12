@@ -21,6 +21,7 @@ img.sombrero {
 
 h1.titulo {
     text-align: center;
+    font-style: oblique;
 }
 
 a.email {
@@ -29,4 +30,28 @@ a.email {
 
 span.vacio {
     color: transparent;
+}
+
+span.color:nth-child(1) {
+    color: blue;
+}
+
+span.color:nth-child(2) {
+    color: green;
+}
+
+span.color:nth-child(3) {
+    color: red;
+}
+
+span.color:nth-child(4) {
+    color: grey;
+}
+
+span.color:nth-child(5) {
+    color: goldenrod;
+}
+
+hr {
+    height: 10px;
 }
