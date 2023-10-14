@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 30px;
+}
+
+div.header {
+    height: 200px;
+    background-color: plum;
+
+
+}
+div.main {
+    display: flex;
+}
+    div.nav {
+        background-color: aqua;
+        height: 600px;
+        width: 150px;
+    }
+
+    div.aside {
+        background-color: blueviolet;
+        height: 600px;
+        width: 400px;
+    }
+
+    div.section {
+        background-color: darkmagenta;
+        height: 600px;
+        width: 1330px;
+    }
+
+div.footer {
+    background-color: darkorchid;
+    height: 140px;
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+	
+ 
+}
+
+@media (min-width: 1001px) {
+  
+  
+}
+
