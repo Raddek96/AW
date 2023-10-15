@@ -1,50 +1,162 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: #fff;
-    font-size: 30px;
-}
 
-div.header {
-    height: 200px;
-    background-color: plum;
-
-
-}
-div.main {
-    display: flex;
-}
-    div.nav {
-        background-color: aqua;
-        height: 600px;
-        width: 150px;
-    }
-
-    div.aside {
-        background-color: blueviolet;
-        height: 600px;
-        width: 400px;
-    }
-
-    div.section {
-        background-color: darkmagenta;
-        height: 600px;
-        width: 1330px;
-    }
-
-div.footer {
+main {
+    color: gainsboro;
+    margin: 0 auto;
+    max-width: 1000px;
+    min-height: 100vh;
+  
+  }
+  
+  header {
+    background-color: blueviolet;
+    height: 20vw;
+    padding: 10px;
+  }
+  
+  nav {
+    background-color: cornflowerblue;
+    height: 10vw;
+    padding: 10px;
+  }
+  
+   aside {
+    background-color: darkmagenta;
+    height: 10vw;
+    padding: 10px;
+  }
+  
+   section {
+    background-color: indigo;
+    height: 50vw;
+    padding: 10px;
+  }
+  
+  footer {
     background-color: darkorchid;
-    height: 140px;
-}
+    height: 20vw;
+    padding: 10px;
+  }
 
-@media (min-width: 600px) and (max-width: 1000px) {
-	
- 
-}
+  #contentH2, #contentH1 {
+    display: inline;
+  }
 
-@media (min-width: 1001px) {
   
   
-}
+  @media (min-width: 600px) and (max-width: 1000px) {
+  
+    main {
+        color: gainsboro;
+        margin: 0 auto;
+        max-width: 1000px;
+        min-height: 100vh;
+      
+      }
+      
+      header {
+        background-color: blueviolet;
+        height: 20vw;
+        padding: 10px;
+      }
+      
+      nav {
+        background-color: cornflowerblue;
+        height: 10vw;
+        padding: 10px;
+      }
 
+      #contentH1 {
+        display: flex;
+      }
+      
+       aside {
+        background-color: darkmagenta;
+        height: 50vw;
+        padding: 10px;
+        position: absolute;
+        width: 150px;
+      }
+      
+       section {
+        background-color: indigo;
+        height: 50vw;
+        padding: 10px;
+        flex: 1;
+        padding-left: 180px;
+      }
+      
+      footer {
+        background-color: darkorchid;
+        height: 20vw;
+        padding: 10px;
+      }
+
+      #contentH2  {
+        display: inline;
+      }
+ }
+  
+  
+  @media (min-width: 1001px) {
+
+    main {
+        color: gainsboro;
+        margin: 0 auto;
+        max-width: 1800px;
+        min-height: 100vh;
+      
+      }
+      
+      header {
+        background-color: blueviolet;
+        height: 20vw;
+        padding: 10px;
+        max-height: 200px;
+      }
+      
+      nav {
+        background-color: cornflowerblue;
+        height: 50vw;
+        padding: 10px;
+        width: 100px;
+        max-height: 800px;
+
+      }
+      
+       aside {
+        background-color: darkmagenta;
+        height: 50vw;
+        padding: 10px;
+        position: absolute;
+        width: 150px;
+        max-height: 800px;
+      }
+      
+       section {
+        background-color: indigo;
+        height: 50vw;
+        padding: 10px;
+        width: 100%;
+        padding-left: 180px;
+        max-height: 800px;        
+
+      }
+      
+      footer {
+        background-color: darkorchid;
+        height: 20vw;
+        padding: 10px;
+        max-height: 200px;  
+      }
+
+      #contentH2, #contentH1  {
+        display: flex;
+      }
+
+      #contentH1 {
+        flex: 1;
+        
+      }
+    
+  
+  }
