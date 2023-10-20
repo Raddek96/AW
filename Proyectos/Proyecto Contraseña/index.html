@@ -1,34 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Young+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Young+Serif&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="https://www.veryicon.com/icon/png/System/Farm%20Fresh/lock.png"/>
     <script src="https://kit.fontawesome.com/2a92e1eb15.js" crossorigin="anonymous"></script>
 
-    <title>Check your password</title>
+    <title>Password Checker</title>
 </head>
+
 <body>
+    <main>
     <form method="post" action="#" class="formulario">
-        <h1 class="titulo" id="titulo" >Enter a password to try</h1>
+        <h1 class="titulo" id="titulo">Enter a password to try</h1>
         <div class="container">
-        <label class="contrasena" for="contrasena">Check password</label>
-        <div class="container1">
-        <input name="contrasena" type="password" id="passwordInput" class="passwordInput"/><i id="togglePassword" class="fa-solid fa-eye"></i>
+            <label class="contrasena" for="contrasena">Check password</label>
+            <div class="container1">
+                <input name="contrasena" type="password" id="passwordInput" class="passwordInput" /><i
+                    id="togglePassword" class="fa-solid fa-eye"></i>
+            </div>
+            <input type="button" class="buttonInput" id="buttonInput" Value="Check" /><i id="iconid"
+                class="fa-solid fa-copy" ></i><b id="clipboardAlert"></b>
         </div>
-        <input type="button" class="buttonInput" id="buttonInput" Value="Check"/><i id ="iconid" class="fa-solid fa-copy"></i>
-        </div>
-        <a href="https://www.howtogeek.com/195430/how-to-create-a-strong-password-and-remember-it/">
-        Learn how to create a <b>Strong Password</b> and Remember It.
-        </a>
+
     </form>
+
+    <div class="secondContainer">
+        <h2 class="secondContainer_h2">How to create a Strong Password</h2>
+        <div class="secondContainer_uls">
+        <ul>
+
+            <li class="secondContainer_li">1. Length Matters: A longer password provides greater security because it's more difficult for attackers
+                to crack.
+                Aim for a minimum of 12 characters, but longer passwords, such as 16 characters or more, are even
+                better.
+                A passphrase, like "MyDogLoves2RunInThePark," is an excellent example of a long, strong password.
+            </li>
+            <li class="secondContainer_li">
+                2. Use a Mix of Characters: Combine uppercase and lowercase letters, numbers, and special characters.
+                This diversity increases the complexity of your password. For example, transform "apple" into something
+                stronger like "ApP!3$auce."
+            </li>
+            <li class="secondContainer_li">
+            3. Avoid Common Words: Stay away from common words or phrases that are easily guessable. Avoid using words
+            like "password," "letmein," or "admin." Hackers use automated tools to try these first.
+            </li>
+            <li class="secondContainer_li">
+                4. Don't Use Personal Information: Never include easily obtainable personal information, like your name,
+                birthdate, or common family member names. Such information is readily available through social media and
+                other sources.
+            </li>
+            <li class="secondContainer_li">
+                5. Passphrases: Passphrases are long and memorable. They are typically formed from a combination of
+                unrelated words, numbers, and special characters. For instance, "Sunny@Beach1PalmTree!" is a strong and
+                memorable passphrase.
+            </li>
+        </ul>
+        <ul>
+            <li class="secondContainer_li">
+                6. Unique and Unpredictable: Refrain from using easily recognizable patterns, such as "1234," "abcd," or
+                sequential keyboard patterns like "qwerty." Make your password as random as possible.
+            </li>
+            <li class="secondContainer_li">
+            7. Avoid Dictionary Words: Even if you substitute some letters with numbers or special characters, hackers
+            have tools that can try variations of dictionary words. Instead, create entirely new combinations.
+            </li>
+            <li class="secondContainer_li">
+                8. Change Regularly: Regularly updating your passwords is a good practice. Change them every 3-6 months,
+                especially for critical accounts like email and banking. Frequent changes reduce the risk of long-term
+                exposure.
+            </li>
+            <li class="secondContainer_li">
+            9. Unique Passwords: It's crucial to use a different password for each account. If one account is
+            compromised, using the same password for others makes them vulnerable too. A password manager can help you
+            keep track of unique passwords for each account.
+            </li>
+            <li class="secondContainer_li">
+                10. Use a Password Manager: Password managers generate, store, and autofill complex passwords for you.
+                They can also help you keep track of numerous passwords for different accounts without the risk of
+                forgetting them. Examples of popular password managers include LastPass, Dashlane, and 1Password.
+        </ul>
+        </div>
+        <input type="button" id="exerciseButtonInput" class="exerciseButtonInput" value="Let´s do an exercise"/>
+       
+        
+        
+        
+        <hr class="lineaHr"/>
+    </div>
+</main>
+<div class="exercise">
+    <p>Which password is Stronger?</p>
+        <f>a. abc123. </f><input type="radio" name="exercise" id="a" value="1"/><br/>
+        <f>b. ^s3FvHd<>2T</f>´<input type="radio" name="exercise" id="b" value="2"/><br/>
+        <input type="submit" class="submit" value="Check" id="inputValiderButton"/>
+</div>
     <footer>
         <div class="container_footer">
-        <a href="https://github.com/"> My Github</a>
-        <p>Create by Radek</p>
+            <a href="https://github.com/Raddek96"><i class="fa-brands fa-github"></i> Github</a>
+            <a href="https://raddek96.github.io/prueba/">Check my projects</a>
+            <p>Create by Radek</p>
         </div>
     </footer>
 
@@ -38,4 +115,22 @@
 
     <script src="main.js"></script>
 </body>
+
 </html>
+
+
+
+
+
+
+
+<!-- Cosas -->
+
+<!--Ubicacion: secondContainer-->
+
+<!-- <a href="https://www.howtogeek.com/195430/how-to-create-a-strong-password-and-remember-it/">
+            Learn how to create a <b>Strong Password</b> and Remember It.
+            </a> -->
+
+
+           

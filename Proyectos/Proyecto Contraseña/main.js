@@ -113,6 +113,11 @@ function comprobarContraseña() {
 
     //Hace que cuando se haga click en el boton con id="buttonInput" se ejecute la función comprobarContraseña
     buttonInput.addEventListener("click", comprobarContraseña);
+   
+   
+    //Para que se ejecute cada vez que modifico el input "PasswordInput"   
+    // passwordInput.addEventListener("input", comprobarContraseña);
+  
 
 
     //Hace que cuando se presione Enter mientras estás usando el passwordInput se ejecute la función comprobarContraseña
@@ -133,11 +138,51 @@ function comprobarContraseña() {
 //COPIAR AL PORTAPAPELES
 
 const copyIcon = document.getElementById("iconid");
-
+const clipboardAlert = document.getElementById("clipboardAlert");
 
 function copiarContraseña(){
     navigator.clipboard.writeText(passwordInput.value);
+    clipboardAlert.textContent = "Copied to the clipboard!";
+
+    setTimeout(() => {
+      clipboardAlert.textContent = "";
+    }, 500);
+
 }
 
 copyIcon.addEventListener("click", copiarContraseña);
 
+//Ejercicio interactivo con puntuación
+
+const exerciseButtonInput = document.getElementById("exerciseButtonInput");
+const main = document.querySelector("main");
+const divExercise = document.querySelector("div.exercise");
+const footer = document.querySelector("footer");
+
+const inputValiderButton = document.getElementById("inputValiderButton");
+
+function ejercicioInteractivo(){
+  main.style.display = "none";
+  divExercise.style.display = "block";
+  footer.style.display = "none";
+
+ 
+}
+
+function validarRespuesta() {
+  const resultado = document.querySelector('input[name="exercise"]:checked');
+  const respuestaCorrecta = "2"; 
+
+  if (resultado) {
+    if (resultado.value === respuestaCorrecta) {
+      alert("¡Correcto!");
+    } else {
+      alert("Incorrecto. Intenta de nuevo.");
+    }
+  } else {
+    alert("Por favor, selecciona una respuesta.");
+  }
+}
+
+exerciseButtonInput.addEventListener("click", ejercicioInteractivo);
+inputValiderButton.addEventListener("click", validarRespuesta);
