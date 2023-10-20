@@ -1,6 +1,6 @@
-////////////////////////////////
-//MOSTRAR Y OCULTAR CONTRASEÑA//
-////////////////////////////////
+//
+//MOSTRAR Y OCULTAR CONTRASEÑA
+//
 
 
 
@@ -12,7 +12,7 @@ const togglePassword = document.getElementById("togglePassword");
 
 //Con la funcion addEventListener("click") detectamos el click de toogle.Password, con function()
 //creamos una función anónima
-togglePassword.addEventListener("click", function(){
+togglePassword.addEventListener("click", function () {
     //Creamos una variable de nombre "type" que con la función getAttribute("type")--> Si el tipo es password = text
     //                                                                             --> Si el tipo es text = password
     const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
@@ -34,47 +34,110 @@ togglePassword.addEventListener("click", function(){
 const buttonInput = document.getElementById("buttonInput");
 const body = document.querySelector("body");
 
-function comprobarContraseña(){
-    const longitudBasica = 7;
-    const soloNumeros = /^\d+$/;
-    const caracteresEspeciales = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+function comprobarContraseña() {
+  const longitudCorta = 7;
+  const longitudMedia = 12;
+  const longitudVacia = 1;
+  const soloNumeros = /^\d+$/;
+  const caracteresEspeciales = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
-    const contraseña = document.getElementById("passwordInput").value;
-    const  titulo = document.getElementById("titulo");
-    const tituloOriginal = titulo.textContent;
+  const contraseña = document.getElementById("passwordInput").value;
+  const titulo = document.getElementById("titulo");
+  const tituloOriginal = titulo.textContent;
 
-    if (contraseña.length <= longitudBasica || soloNumeros.test(contraseña) || !caracteresEspeciales.test(contraseña)){
-        body.style.background = "rgb(255,0,0)";
-        body.style.background = "radial-gradient(circle, rgba(255,0,0,1) 50%, rgba(119,78,42,1) 100%)";
-        titulo.textContent = "Your password is not secure";
+  if(contraseña.length < longitudVacia){
+    titulo.textContent = "Please enter a password";
 
-        setTimeout(function() {
-            body.style.background = "rgb(212,183,27)";
-            body.style.background = "radial-gradient(circle, rgba(212,183,27,1) 50%, rgba(119,78,42,1) 100%)";
-            titulo.textContent = tituloOriginal;
-          }, 2000);
+    setTimeout(function(){
+        titulo.textContent = tituloOriginal;
+    }, 2000);
+  } else {
+
+
+  if (contraseña.length < longitudCorta) {
+    if (soloNumeros.test(contraseña)) {
+      body.style.background =
+        "radial-gradient(circle, rgba(255, 0, 0, 1) 50%, rgba(119, 78, 42, 1) 100%)";
+      titulo.textContent = "Your password is not secure";
+    } else if (!caracteresEspeciales.test(contraseña)) {
+      body.style.background =
+        "radial-gradient(circle, rgba(255, 0, 0, 1) 50%, rgba(119, 78, 42, 1) 100%)";
+      titulo.textContent = "Your password is not secure";
     } else {
-        body.style.background = "rgb(0,255,10)";
-        body.style.background = "radial-gradient(circle, rgba(0,255,10,1) 50%, rgba(119,78,42,1) 100%)"; 
-        titulo.textContent = "Your password is secure";
-
-        setTimeout(function() {
-            body.style.background = "rgb(212,183,27)";
-            body.style.background = "radial-gradient(circle, rgba(212,183,27,1) 50%, rgba(119,78,42,1) 100%)";
-            titulo.textContent = tituloOriginal;
-          }, 2000);
+      body.style.background =
+        "radial-gradient(circle, rgba(255, 0, 0, 1) 50%, rgba(119, 78, 42, 1) 100%)";
+      titulo.textContent = "Your password is not secure";
     }
+
+  } else if (contraseña.length < longitudMedia) {
+    if (soloNumeros.test(contraseña)) {
+      body.style.background =
+      "radial-gradient(circle, rgba(255, 0, 0, 1) 50%, rgba(119, 78, 42, 1) 100%)";
+      titulo.textContent = "Your password has low security";
+    } else if (!caracteresEspeciales.test(contraseña)) {
+      body.style.background =
+        "radial-gradient(circle, rgba(212, 183, 27, 1) 50%, rgba(119, 78, 42, 1) 100%)";
+      titulo.textContent = "Your password has medium security";
+    } else {
+      body.style.background =
+      "radial-gradient(circle, rgba(212, 183, 27, 1) 50%, rgba(119, 78, 42, 1) 100%)";
+      titulo.textContent = "Your password has medium security";
+    }
+
+  } else {
+    if (soloNumeros.test(contraseña)) {
+      body.style.background =
+        "radial-gradient(circle, rgba(212, 183, 27, 1) 50%, rgba(119, 78, 42, 1) 100%)";
+      titulo.textContent = "Your password has medium security";
+    } else if (!caracteresEspeciales.test(contraseña)) {
+      body.style.background =
+        "radial-gradient(circle, rgba(0, 255, 10, 1) 50%, rgba(119, 78, 42, 1) 100%)";
+      titulo.textContent = "Your password has strong security";
+    } else {
+      body.style.background =
+        "radial-gradient(circle, rgba(0, 255, 10, 1) 50%, rgba(119, 78, 42, 1) 100%)";
+      titulo.textContent = "Your password has strong security";
+    }
+  }
+
+  setTimeout(function () {
+    body.style.background = "";
+    titulo.textContent = tituloOriginal;
+  }, 2000);
 }
 
-//Hace que cuando se haga click en el boton con id="buttonInput" se ejecute la función comprobarContraseña
-buttonInput.addEventListener("click", comprobarContraseña);
-
-
-//Hace que cuando se presione Enter mientras estás usando el passwordInput se ejecute la función comprobarContraseña
-passwordInput.addEventListener('keydown', function(event){
-if (event.code === "Enter"){
-    event.preventDefault();
-    comprobarContraseña();
 }
 
-});
+
+
+
+    //Hace que cuando se haga click en el boton con id="buttonInput" se ejecute la función comprobarContraseña
+    buttonInput.addEventListener("click", comprobarContraseña);
+
+
+    //Hace que cuando se presione Enter mientras estás usando el passwordInput se ejecute la función comprobarContraseña
+    passwordInput.addEventListener('keydown', function (event) {
+        if (event.code === "Enter") {
+            event.preventDefault();
+            comprobarContraseña();
+        }
+
+    });
+
+
+
+
+
+
+
+//COPIAR AL PORTAPAPELES
+
+const copyIcon = document.getElementById("iconid");
+
+
+function copiarContraseña(){
+    navigator.clipboard.writeText(passwordInput.value);
+}
+
+copyIcon.addEventListener("click", copiarContraseña);
+

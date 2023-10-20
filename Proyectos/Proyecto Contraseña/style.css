@@ -7,18 +7,18 @@
 }
 
 body {
-    background: rgb(212,183,27);
-    background: radial-gradient(circle, rgba(212,183,27,1) 50%, rgba(119,78,42,1) 100%); 
+    background: transparent;
 }
 
-form.formulario { 
+form.formulario {
     width: 1200px;
     height: 400px;
-    background: rgb(156, 139, 43);
+    background: rgba(156, 139, 43, 30%);
     margin: 250px auto;
     border-radius: 20px;
     border: 3px solid black;
     outline: 1px solid white;
+    
 }
 
 h1.titulo {
@@ -67,3 +67,17 @@ input.buttonInput {
     margin-top: 20px;
 }
 
+i.fa-solid.fa-copy {
+    padding: 10px;
+}
+
+
+div.container_footer {
+    width: 90%;
+    height: 50px;
+    background: rgba(156, 139, 43, 30%);
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 3px solid black;
+    outline: 1px solid white;
+}
