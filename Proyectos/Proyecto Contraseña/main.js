@@ -172,10 +172,13 @@ function ejercicioInteractivo(){
 function validarRespuesta() {
   const resultado = document.querySelector('input[name="exercise"]:checked');
   const respuestaCorrecta = "2"; 
+  const correctAnswerText = document.getElementById("correctAnswerText");
+  const smileIcon = document.getElementById("smileIcon");
 
   if (resultado) {
     if (resultado.value === respuestaCorrecta) {
-      alert("¡Correcto!");
+      correctAnswerText.style.display = "inline-block";
+      smileIcon.style.display = "inline-block";
     } else {
       alert("Incorrecto. Intenta de nuevo.");
     }
