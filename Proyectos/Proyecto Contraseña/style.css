@@ -7,12 +7,12 @@
 }
 
 body {
-    background: #777;;
+    background: #888;
 }
 
 form.formulario {
     width: 1200px;
-    height: 400px;
+    height: 420px;
     background: rgba(156, 139, 43, 30%);
     margin: 200px auto;
     border-radius: 20px;
@@ -20,11 +20,23 @@ form.formulario {
     
 }
 
+
+div.container_h1 {
+    display: flex;
+    align-items: center;
+}
 h1.titulo {
     text-align: center;
     padding-top: 20px;
     font-size: 2.5em;
-    
+    display: inline-block;
+    margin: 0 auto;   
+}
+
+i.fa-solid.fa-bars {
+    padding: 50px;
+    padding-left: 0;
+    scale: 3;
 }
 
 div.container {
@@ -55,6 +67,7 @@ input.passwordInput {
     width: 1000px;
     height: 35px;
     border-radius: 10px;
+    
 }
 
 input.buttonInput {
@@ -198,4 +211,62 @@ p.correctAnswer, i.fa-regular.fa-face-smile {
     display: inline-block;
     display: none;
     
+}
+
+i.fa-regular.fa-face-frown {
+    display: none;
+}
+
+div.container_header {
+    width: 90%;
+    height: 50px;
+    background: rgba(156, 139, 43, 30%);
+    margin: 0 auto;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    top: 0%;
+    display: none;
+    
+}
+
+i.fa-regular.fa-sun {
+    transform: scale(2);
+    display: none;
+}
+
+i.fa-regular.fa-moon {
+    transform: scale(2);
+}
+
+i.fa-solid.fa-globe {
+    transform: scale(2);
+}
+
+div.idiomas {
+display: flex;
+    
+}
+i.fa-solid.fa-globe{
+    padding: 10px;
+}
+button.buttonEnglish {
+    margin: 10px 5px 10px 10px;
+    width: 100px;
+    height: 25px;
+    border-radius: 7px;
+    display: none;
+    
+}
+
+button.buttonSpanish {
+    margin: 10px 10px 10px 5px;
+    width: 100px;
+    height: 25px;
+    border-radius: 7px;
+    display: none;
 }

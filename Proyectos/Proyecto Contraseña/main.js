@@ -174,18 +174,99 @@ function validarRespuesta() {
   const respuestaCorrecta = "2"; 
   const correctAnswerText = document.getElementById("correctAnswerText");
   const smileIcon = document.getElementById("smileIcon");
+  const frownIcon = document.getElementById("frownIcon");
 
   if (resultado) {
     if (resultado.value === respuestaCorrecta) {
       correctAnswerText.style.display = "inline-block";
       smileIcon.style.display = "inline-block";
+      correctAnswerText.textContent = "Correct Answer";
+      frownIcon.style.display = "none";
+
+      
     } else {
-      alert("Incorrecto. Intenta de nuevo.");
+      correctAnswerText.style.display = "inline-block";
+      frownIcon.style.display = "inline-block";
+      correctAnswerText.textContent = "Wrong Answer";
+      smileIcon.style.display = "none";
     }
   } else {
     alert("Por favor, selecciona una respuesta.");
   }
+  setTimeout(() => {
+    main.style.display = "block";
+    divExercise.style.display = "none";
+    footer.style.display = "flex";
+  }, 2000);
 }
 
 exerciseButtonInput.addEventListener("click", ejercicioInteractivo);
 inputValiderButton.addEventListener("click", validarRespuesta);
+
+
+
+//Desplegar menú superior
+
+const menuIcon = document.getElementById("menuIcon");
+const header = document.getElementById("container_header");
+const formulario = document.getElementById("formulario");
+let menuVisible = false;
+
+function toggleMenu(){
+  if (menuVisible) {
+    header.style.display = "none"; // Oculta el menú si está visible
+    formulario.style.marginTop = "200px";
+  } else {
+    header.style.display = "flex"; // Muestra el menú si no está visible
+    formulario.style.marginTop = "150px";
+  }
+  menuVisible = !menuVisible; // Invierte el estado del menú
+}
+
+
+menuIcon.addEventListener("click", toggleMenu);
+
+
+//Intercambian entre modo oscuro y modo claro
+const darkIcon = document.getElementById("darkIcon");
+const lightIcon = document.getElementById("lightIcon");
+let modoClaro = false;
+
+function cambiarModo() {
+  if(modoClaro){
+    lightIcon.style.display = "none";
+    darkIcon.style.display = "block"
+    document.body.style.background = "#888";
+
+  } else  {
+    lightIcon.style.display = "block";
+    darkIcon.style.display = "none"
+    document.body.style.background = "#fff";
+
+
+  }
+  modoClaro = !modoClaro;
+}
+
+darkIcon.addEventListener("click", cambiarModo);
+lightIcon.addEventListener("click", cambiarModo);
+
+
+
+//Desplegar idiomas
+
+const globeIcon = document.getElementById("globeIcon");
+const buttonEnglish = "";
+const buttonSpanish = "";
+let idiomasVisibles = false;
+
+function desplegarIdiomas(){
+  if(idiomasVisibles){
+
+
+
+  } else{
+
+  }
+  idiomasVisibles = !idiomasVisibles;
+}

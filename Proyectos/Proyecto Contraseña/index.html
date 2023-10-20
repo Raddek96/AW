@@ -16,9 +16,22 @@
 </head>
 
 <body>
+    <header>
+        <div class="container_header" id="container_header">
+            <div class="light-dark"><i class="fa-regular fa-sun" id="lightIcon"></i><i class="fa-regular fa-moon" id="darkIcon"></i></div>
+            <div class="idiomas">
+                <div class="language"><i class="fa-solid fa-globe" id="globeIcon"></i></div>
+                <button class="buttonEnglish">English</button>
+                <button class="buttonSpanish">Spanish</button>
+            </div>
+        </div>
+    </header>
     <main>
-    <form method="post" action="#" class="formulario">
+    <form method="post" action="#" class="formulario" id="formulario">
+        <div class="container_h1">
         <h1 class="titulo" id="titulo">Enter a password to try</h1>
+        <i class="fa-solid fa-bars" id="menuIcon"></i>
+        </div>
         <div class="container">
             <label class="contrasena" for="contrasena">Check password</label>
             <div class="container1">
@@ -99,7 +112,7 @@
     <p>Which password is Stronger?</p>
         <f>a. abc123. </f><input type="radio" name="exercise" id="a" value="1"/><br/>
         <f>b. ^s3FvHd<>2T</f>´<input type="radio" name="exercise" id="b" value="2"/><br/>
-        <p class="correctAnswer" id="correctAnswerText">Correct Answer!!</p><i id="smileIcon" class="fa-regular fa-face-smile"></i>
+        <p class="correctAnswer" id="correctAnswerText">Correct Answer!!</p><i id="smileIcon" class="fa-regular fa-face-smile"></i><i id="frownIcon" class="fa-regular fa-face-frown"></i>
         <input type="submit" class="submit" value="Check" id="inputValiderButton"/>
 
 </div>
