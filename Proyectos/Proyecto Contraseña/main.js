@@ -214,13 +214,11 @@ let menuVisible = false;
 
 function toggleMenu(){
   if (menuVisible) {
-    header.style.display = "none"; // Oculta el menú si está visible
-    formulario.style.marginTop = "200px";
+    header.style.transform = "translateY(-100%)"; 
   } else {
-    header.style.display = "flex"; // Muestra el menú si no está visible
-    formulario.style.marginTop = "150px";
+    header.style.transform = "translateY(0)"; 
   }
-  menuVisible = !menuVisible; // Invierte el estado del menú
+  menuVisible = !menuVisible; 
 }
 
 
@@ -256,17 +254,39 @@ lightIcon.addEventListener("click", cambiarModo);
 //Desplegar idiomas
 
 const globeIcon = document.getElementById("globeIcon");
-const buttonEnglish = "";
-const buttonSpanish = "";
+const buttonEnglish = document.getElementById("buttonEnglish");
+const buttonSpanish = document.getElementById("buttonSpanish");
 let idiomasVisibles = false;
 
 function desplegarIdiomas(){
   if(idiomasVisibles){
-
-
-
+    buttonEnglish.style.display = "inline-block";
+    buttonSpanish.style.display = "inline-block";
   } else{
+    buttonEnglish.style.display = "none";
+    buttonSpanish.style.display = "none";
 
   }
   idiomasVisibles = !idiomasVisibles;
 }
+
+globeIcon.addEventListener("click", desplegarIdiomas);
+
+
+
+//Seguir leyendo
+
+const showMoreButton  = document.getElementById("showMoreButton");
+const thirdContainer = document.getElementById("thirdContainer");
+const listThirdContainer = document.getElementById("listThirdContainer");
+const pLoremp = document.getElementById("pLoremp");
+
+function seguirLeyendo(){
+  thirdContainer.style.filter = "none";
+  thirdContainer.style.height = "1000px";
+  listThirdContainer.style.display = "block";
+  pLoremp.style.display = "block";
+}
+
+showMoreButton.addEventListener("click", seguirLeyendo);
+

@@ -33,7 +33,7 @@ h1.titulo {
     margin: 0 auto;   
 }
 
-i.fa-solid.fa-bars {
+i.fa-solid.fa-universal-access {
     padding: 50px;
     padding-left: 0;
     scale: 3;
@@ -117,6 +117,7 @@ div.secondContainer {
     height: 1000px;
     background: rgba(156, 139, 43, 30%);
     margin: 250px auto;
+    margin-bottom: 0;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
@@ -230,9 +231,15 @@ div.container_header {
     align-items: center;
     padding: 10px;
     top: 0%;
-    display: none;
-    
+    display: flex;
+    transition: transform 0.3s ease;
 }
+
+.menu-hidden {
+    display: none;
+    transform: translateY(-100%); /* Inicialmente oculto, desplazado hacia arriba */
+  }
+  
 
 i.fa-regular.fa-sun {
     transform: scale(2);
@@ -269,4 +276,49 @@ button.buttonSpanish {
     height: 25px;
     border-radius: 7px;
     display: none;
+}
+
+input.showMoreButton {
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    margin-left: 500px;
+    margin-top: 5%;
+    filter: none;
+}
+
+input.showMoreButton:hover {
+    background: #bbb;
+    cursor: pointer;
+    transition: all 0.5s ease ;
+}
+
+div.thirdContainer {
+    width: 1200px;
+    height: 200px;
+    background: rgba(156, 139, 43, 30%);
+    margin:  150px auto;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    filter: blur(5px);
+}
+
+
+h2.h2Preview {
+    text-align: center;
+
+}
+p.pPreview {
+    text-align: justify;
+    margin: 20px;
+}
+
+ol.listThirdContainer {
+    display: none;
+    margin: 20px;
+}
+
+p.pLoremp {
+    display: none;
+    margin: 20px;
 }

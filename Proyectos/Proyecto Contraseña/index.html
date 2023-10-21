@@ -17,12 +17,12 @@
 
 <body>
     <header>
-        <div class="container_header" id="container_header">
+        <div class="container_header menu-hidden" id="container_header">
             <div class="light-dark"><i class="fa-regular fa-sun" id="lightIcon"></i><i class="fa-regular fa-moon" id="darkIcon"></i></div>
             <div class="idiomas">
                 <div class="language"><i class="fa-solid fa-globe" id="globeIcon"></i></div>
-                <button class="buttonEnglish">English</button>
-                <button class="buttonSpanish">Spanish</button>
+                <button class="buttonEnglish" id="buttonEnglish">English</button>
+                <button class="buttonSpanish" id="buttonSpanish">Spanish</button>
             </div>
         </div>
     </header>
@@ -30,7 +30,7 @@
     <form method="post" action="#" class="formulario" id="formulario">
         <div class="container_h1">
         <h1 class="titulo" id="titulo">Enter a password to try</h1>
-        <i class="fa-solid fa-bars" id="menuIcon"></i>
+        <i class="fa-solid fa-universal-access" id="menuIcon"></i>
         </div>
         <div class="container">
             <label class="contrasena" for="contrasena">Check password</label>
@@ -47,58 +47,58 @@
     <div class="secondContainer">
         <h2 class="secondContainer_h2">How to create a Strong Password</h2>
         <div class="secondContainer_uls">
-        <ul>
+        <ol>
 
-            <li class="secondContainer_li">1. Length Matters: A longer password provides greater security because it's more difficult for attackers
+            <li class="secondContainer_li">Length Matters: A longer password provides greater security because it's more difficult for attackers
                 to crack.
                 Aim for a minimum of 12 characters, but longer passwords, such as 16 characters or more, are even
                 better.
                 A passphrase, like "MyDogLoves2RunInThePark," is an excellent example of a long, strong password.
             </li>
             <li class="secondContainer_li">
-                2. Use a Mix of Characters: Combine uppercase and lowercase letters, numbers, and special characters.
+                Use a Mix of Characters: Combine uppercase and lowercase letters, numbers, and special characters.
                 This diversity increases the complexity of your password. For example, transform "apple" into something
                 stronger like "ApP!3$auce."
             </li>
             <li class="secondContainer_li">
-            3. Avoid Common Words: Stay away from common words or phrases that are easily guessable. Avoid using words
+            Avoid Common Words: Stay away from common words or phrases that are easily guessable. Avoid using words
             like "password," "letmein," or "admin." Hackers use automated tools to try these first.
             </li>
             <li class="secondContainer_li">
-                4. Don't Use Personal Information: Never include easily obtainable personal information, like your name,
+                Don't Use Personal Information: Never include easily obtainable personal information, like your name,
                 birthdate, or common family member names. Such information is readily available through social media and
                 other sources.
             </li>
             <li class="secondContainer_li">
-                5. Passphrases: Passphrases are long and memorable. They are typically formed from a combination of
+                Passphrases: Passphrases are long and memorable. They are typically formed from a combination of
                 unrelated words, numbers, and special characters. For instance, "Sunny@Beach1PalmTree!" is a strong and
                 memorable passphrase.
             </li>
-        </ul>
-        <ul>
+        </ol>
+        <ol>
             <li class="secondContainer_li">
-                6. Unique and Unpredictable: Refrain from using easily recognizable patterns, such as "1234," "abcd," or
+                Unique and Unpredictable: Refrain from using easily recognizable patterns, such as "1234," "abcd," or
                 sequential keyboard patterns like "qwerty." Make your password as random as possible.
             </li>
             <li class="secondContainer_li">
-            7. Avoid Dictionary Words: Even if you substitute some letters with numbers or special characters, hackers
+            Avoid Dictionary Words: Even if you substitute some letters with numbers or special characters, hackers
             have tools that can try variations of dictionary words. Instead, create entirely new combinations.
             </li>
             <li class="secondContainer_li">
-                8. Change Regularly: Regularly updating your passwords is a good practice. Change them every 3-6 months,
+                Change Regularly: Regularly updating your passwords is a good practice. Change them every 3-6 months,
                 especially for critical accounts like email and banking. Frequent changes reduce the risk of long-term
                 exposure.
             </li>
             <li class="secondContainer_li">
-            9. Unique Passwords: It's crucial to use a different password for each account. If one account is
+            Unique Passwords: It's crucial to use a different password for each account. If one account is
             compromised, using the same password for others makes them vulnerable too. A password manager can help you
             keep track of unique passwords for each account.
             </li>
             <li class="secondContainer_li">
-                10. Use a Password Manager: Password managers generate, store, and autofill complex passwords for you.
+                Use a Password Manager: Password managers generate, store, and autofill complex passwords for you.
                 They can also help you keep track of numerous passwords for different accounts without the risk of
                 forgetting them. Examples of popular password managers include LastPass, Dashlane, and 1Password.
-        </ul>
+        </ol>
         </div>
         <input type="button" id="exerciseButtonInput" class="exerciseButtonInput" value="Let´s do an exercise"/>
        
@@ -106,12 +106,77 @@
         
         
         <hr class="lineaHr"/>
-    </div>
+        <input type="button" id="showMoreButton" class="showMoreButton" value="Show more"/>
+     </div>
+     <div class="thirdContainer" id="thirdContainer">
+            <h2 class="h2Preview">Password Theft Statistics: Understanding the Growing Threat</h2>
+            <p class="pPreview">In the rapidly evolving landscape of today's digital age,
+                one of the most pervasive and concerning challenges facing individuals,
+                organizations, and society as a whole is the insidious menace of password theft.
+                As our lives become increasingly entwined with the digital realm, where our most precious data and personal information reside,
+                hackers and cybercriminals, akin to chameleons adapting to their environment, continually refine and expand their illicit techniques.
+                The consequence is a nefarious crescendo in the scale and gravity of password theft,
+                an escalating concern that has begun to reach unprecedented and disconcerting proportions.
+                It is vital to navigate this digital wilderness armed with knowledge,
+                and to that end, we delve into an array of compelling statistics that illuminate the vast expanse and complexity of this burgeoning threat.
+            </p>
+            <ol class="listThirdContainer" id="listThirdContainer">
+                <li>Rising Incidents: Password theft incidents have seen a steady rise in recent years.
+                     Reports indicate a significant increase in the number of data breaches and cyberattacks aimed at stealing user credentials.
+                </li>
+                <li>
+                    Phishing Attacks: Phishing remains one of the most common methods used to steal passwords.
+                     In a typical phishing attack, cybercriminals impersonate trusted entities to trick individuals into revealing their login credentials.
+                      The success rate of phishing attacks is alarming.
+                </li>
+                <li>
+                    Weak Passwords: Shockingly, a large percentage of individuals continue to use weak passwords.
+                     Common choices like '123456,' 'password,' and 'qwerty' make it easier for hackers to guess and crack passwords.
+                </li>
+                <li>
+                    Password Reuse: Many users still practice password reuse across multiple accounts.
+                     When one account gets compromised, it can have a domino effect on the security of other accounts where the same password is used.
+                </li>
+                <li>
+                    Credential Stuffing: This technique involves using stolen username and password combinations
+                     from one service to gain unauthorized access to other accounts where the user has used the same credentials.
+                     Cybercriminals automate this process and have access to a vast pool of stolen credentials.
+                </li>
+
+                <li>
+                    Financial Impact: The financial losses due to password theft are substantial.
+                     Individuals and organizations alike suffer from fraud, identity theft, and loss of sensitive information.
+                      The cost of dealing with the aftermath of a security breach can be exorbitant.
+                </li>
+                <li>
+                    Protecting Against Password Theft: As the threat of password theft continues to grow,
+                     it's crucial for individuals and organizations to take cybersecurity seriously.
+                     Implementing strong, unique passwords, enabling two-factor authentication,
+                      and staying informed about the latest security threats are all essential steps in safeguarding sensitive information.
+                </li>
+            </ol>
+            <p class="pLoremp" id="pLoremp">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                <br/>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                <br/>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            </p>
+     </div>
+
 </main>
 <div class="exercise">
     <p>Which password is Stronger?</p>
         <f>a. abc123. </f><input type="radio" name="exercise" id="a" value="1"/><br/>
-        <f>b. ^s3FvHd<>2T</f>´<input type="radio" name="exercise" id="b" value="2"/><br/>
+        <f>b. ^s3FvHd<>2T+</f><input type="radio" name="exercise" id="b" value="2"/><br/>
         <p class="correctAnswer" id="correctAnswerText">Correct Answer!!</p><i id="smileIcon" class="fa-regular fa-face-smile"></i><i id="frownIcon" class="fa-regular fa-face-frown"></i>
         <input type="submit" class="submit" value="Check" id="inputValiderButton"/>
 
