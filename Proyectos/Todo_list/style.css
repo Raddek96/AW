@@ -1,0 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Header css */
+div.headerContainer {
+    width: 100%;
+    height: 100px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+
+h1#headerTitle {
+    margin: 10px auto 0;
+    text-transform: uppercase;
+    
+    
+}
+
+ul#headerList {
+    display: flex;
+    list-style: none;
+    font-style: oblique;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+li.headerList__li {
+    padding: 30px;
+}
+
+/* ///////////////////////////////////////////// */
+
+/* Main CSS */
+
+div.mainContainer {
+    width: 100%;
+    height: 1000px;
+    background-color:beige;
+    display: flex;
+    flex-direction: column;
+}
+
+h2#mainTitle {
+    margin: 30px auto 0;
+}
+
+input#input {
+    margin: 30px auto 0;
+    width: 600px;
+    height: 30px;
+    border-radius: 10px;
+
+}
+
+ul#mainList {
+    margin: 10px auto;
+    
+    
+}
+ul#mainList li {
+    padding: 10px;
+}
+
+
+/* Menú de opciones */
+
+div.menuFunctions {
+    width: 100px;
+    height: 400px;
+    background-color: red;
+    margin: 0;
+}
+
+i.fa-solid.fa-bars {
+    position: absolute;
+    top: 250px;
+    left: 30px;
+    /* outline: 1px solid red; */
+    scale: 2.5;
+    
+}
