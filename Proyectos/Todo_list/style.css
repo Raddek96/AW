@@ -40,11 +40,28 @@ li.headerList__li {
 /* Main CSS */
 
 div.mainContainer {
-    width: 100%;
+    width: 32%;
     height: 1000px;
     background-color:beige;
+    
+    margin: 0 auto;
+}
+
+div.firstList {
     display: flex;
     flex-direction: column;
+}
+
+div.secondList {
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+div.thirdList {
+    display: flex;
+    flex-direction: column;
+    display: none;
 }
 
 h2#mainTitle {
@@ -60,29 +77,15 @@ input#input {
 }
 
 ul#mainList {
-    margin: 10px auto;
+    margin: 10px 1;
+    list-style: symbols("");
     
     
 }
 ul#mainList li {
     padding: 10px;
-}
-
-
-/* Menú de opciones */
-
-div.menuFunctions {
-    width: 100px;
-    height: 400px;
-    background-color: red;
-    margin: 0;
-}
-
-i.fa-solid.fa-bars {
-    position: absolute;
-    top: 250px;
-    left: 30px;
-    /* outline: 1px solid red; */
-    scale: 2.5;
     
 }
+
+
+
