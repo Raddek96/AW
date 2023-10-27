@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+main {
+    display: flex;
+}
+
 /* Header css */
 div.headerContainer {
     width: 100%;
@@ -41,7 +45,8 @@ li.headerList__li {
 
 div.mainContainer {
     width: 32%;
-    height: 1000px;
+    min-height: 1000px;
+    height: 100%;
     background-color:beige;
     
     margin: 0 auto;
@@ -87,5 +92,12 @@ ul#mainList li {
     
 }
 
+div.textAndIcon {
+    display: flex
+}
 
+/* Menú desplegable */
 
+div.mainMenu  {
+    display: flex;
+}

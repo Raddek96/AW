@@ -1,96 +1,40 @@
-// //Intercambiar entre listas
-// const input = "";
-// const input1 = document.getElementById("input1");
-// const input2 = document.getElementById("input2");
-// const input3 = document.getElementById("input3");
-// const mainList = document.getElementById("mainList");
-// const numlista = "";
-
-// const lista1 = document.getElementById("lista1");
-// const lista2 = document.getElementById("lista2");
-// const lista3 = document.getElementById("lista3");
-
-// const divLista1 = document.getElementsByClassName("firstList");
-// const divLista2 = document.getElementsByClassName("secondList");
-// const divLista3 = document.getElementsByClassName("thirdList");
-
-// lista1.addEventListener("click", function(){
-//     numlista = 1;
-// });
-
-// lista2.addEventListener("click", function(){
-//     numlista = 2;
-// });
-
-// lista3.addEventListener("click", function(){
-//     numlista = 3;
-// });
-
-// function intercambiarListas(numlista){
-//     switch (numlista){
-//         case 1:
-//        input = input1;
-//         divLista1.style.display = "flex"
-//         divLista2.style.display = "none"
-//         divLista3.style.display = "none"
-
-//         break;
-
-//         case 2:
-//        input = input2;
-//        divLista1.style.display = "none"
-//        divLista2.style.display = "flex"
-//        divLista3.style.display = "none"
-//         break;
-
-//         case 3:
-//        input = input3;
-//        divLista1.style.display = "none"
-//        divLista2.style.display = "none"
-//        divLista3.style.display = "flex"
-//         break;
-
-//         default:
-
-//     }
-// }
-
-
-
-
 const input1 = document.getElementById("input1");
 const input2 = document.getElementById("input2");
 const input3 = document.getElementById("input3");
 const mainList1 = document.getElementById("mainList1");
 const mainList2 = document.getElementById("mainList2");
 const mainList3 = document.getElementById("mainList3");
-let input = input1;
-let numlista = 1;
-
 const lista1 = document.getElementById("list1");
 const lista2 = document.getElementById("list2");
 const lista3 = document.getElementById("list3");
-
 const divLista1 = document.getElementsByClassName("firstList")[0];
 const divLista2 = document.getElementsByClassName("secondList")[0];
 const divLista3 = document.getElementsByClassName("thirdList")[0];
 
+// Agregar listeners a los elementos "lista1", "lista2" y "lista3"
 lista1.addEventListener("click", function() {
-  numlista = 1;
-  intercambiarListas(numlista);
+  intercambiarListas(input1, 1);
 });
-
 lista2.addEventListener("click", function() {
-  numlista = 2;
-  intercambiarListas(numlista);
+  intercambiarListas(input2, 2);
 });
-
 lista3.addEventListener("click", function() {
-  numlista = 3;
-  intercambiarListas(numlista);
+  intercambiarListas(input3, 3);
 });
 
-function intercambiarListas(numlista){
+// Agregar listener al elemento "input"
+input1.addEventListener("keydown", function(event){
+  agregarElementoLista1(event, input1, mainList1);
+});
+input2.addEventListener("keydown", function(event){
+  agregarElementoLista2(event, input2, mainList2);
+});
+input3.addEventListener("keydown", function(event){
+  agregarElementoLista3(event, input3, mainList3);
+});
+
+// Función para cambiar la lista activa
+function intercambiarListas(input, numlista){
   switch (numlista){
     case 1:
       input = input1;
@@ -115,66 +59,32 @@ function intercambiarListas(numlista){
   }
 }
 
-input.addEventListener("keydown", function(event){
+// Funciones para agregar elementos a cada lista
+function agregarElementoLista1(event, input, mainList){
   if(event.code === "Enter" && input.value !== ""){
     const newLi = document.createElement("li");
     newLi.innerText = input.value;
-    switch (numlista) {
-      case 1:
-        mainList1.appendChild(newLi);
-        break;
-      case 2:
-        mainList2.appendChild(newLi);
-        break;
-      case 3:
-        mainList3.appendChild(newLi);
-        break;
-      default:
-        break;
-    }
+    mainList.appendChild(newLi);
     input.value = "";
   }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Crear Lista //
-
-
-function crearTarea(){
-    if (input.value == 0){
-        input.setAttribute("placeholder", "Por favor, introduce una tarea")
-        setTimeout(function(){
-            input.setAttribute("placeholder", "");
-        }, 2000);
-    } else {
-        input.setAttribute("placeholder", "");
-        const tarea = document.createElement("li");
-        tarea.innerText = input.value;
-        mainList.appendChild(tarea);
-    }
 }
 
-input.addEventListener("keydown", function(event){
-    if (event.code == "Enter"){
-        crearTarea();
-        // Aquí puedes limpiar el valor de entrada si lo deseas
-        input.value = '';
-    }
-})
+function agregarElementoLista2(event, input, mainList){
+  if(event.code === "Enter" && input.value !== ""){
+    const newLi = document.createElement("li");
+    newLi.innerText = input.value;
+    mainList.appendChild(newLi);
+    input.value = "";
+  }
+}
 
+function agregarElementoLista3(event, input, mainList){
+  if(event.code === "Enter" && input.value !== ""){
+    const newLi = document.createElement("li");
+    newLi.innerText = input.value;
+    mainList.appendChild(newLi);
+    input.value = "";
+  }
+}
 
 
