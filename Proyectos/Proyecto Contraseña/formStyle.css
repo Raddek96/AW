@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+span.red {
+    color: #f00
+}
+
+div.formulario {
+    width: 1200px;
+    height: 800px;
+    background-color: beige;
+    display: flex;
+    margin: 100px auto;
+}

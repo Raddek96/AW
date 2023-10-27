@@ -62,11 +62,13 @@ i.fa-solid.fa-eye-slash {
 
 label.contrasena {
     font-size: 2em;
+    
 }
 input.passwordInput {
     width: 1000px;
     height: 35px;
     border-radius: 10px;
+    
     
 }
 
@@ -195,17 +197,29 @@ input.submit:hover {
     cursor: pointer;
     transition: all 0.5s ease ;
 }
+
+.containerExerciseButtonInput {
+    text-align: center;
+    margin-top: 20px; /* Ajusta el margen superior para centrado vertical */
+    margin-bottom: 20px; /* Opcional: Ajusta el margen inferior si es necesario */
+  }
+  
 input.exerciseButtonInput {
     
     width: 200px;
     height: 35px;
     border-radius: 10px;
-    margin: 10px;
+    
+    
+    
 }
+
+
 input.exerciseButtonInput:hover {
     background: #bbb;
     cursor: pointer;
     transition: all 0.5s ease ;
+    
 }
 
 p.correctAnswer, i.fa-regular.fa-face-smile {
@@ -254,28 +268,28 @@ i.fa-solid.fa-globe {
     transform: scale(2);
 }
 
+i.fa-solid.fa-align-justify {
+    transform: scale(2);
+}
+
+i.fa-solid.fa-align-left {
+    transform: scale(2);
+}
+
+i.fa-solid.fa-align-right {
+    transform: scale(2);
+}
+
+i.fa-solid.fa-list-ol {
+    transform: scale(2);
+}
+
 div.idiomas {
 display: flex;
     
 }
 i.fa-solid.fa-globe{
     padding: 10px;
-}
-button.buttonEnglish {
-    margin: 10px 5px 10px 10px;
-    width: 100px;
-    height: 25px;
-    border-radius: 7px;
-    display: none;
-    
-}
-
-button.buttonSpanish {
-    margin: 10px 10px 10px 5px;
-    width: 100px;
-    height: 25px;
-    border-radius: 7px;
-    display: none;
 }
 
 input.showMoreButton {
@@ -291,6 +305,7 @@ input.showMoreButton:hover {
     background: #bbb;
     cursor: pointer;
     transition: all 0.5s ease ;
+    
 }
 
 div.thirdContainer {

@@ -258,19 +258,26 @@ const buttonEnglish = document.getElementById("buttonEnglish");
 const buttonSpanish = document.getElementById("buttonSpanish");
 let idiomasVisibles = false;
 
-function desplegarIdiomas(){
-  if(idiomasVisibles){
-    buttonEnglish.style.display = "inline-block";
-    buttonSpanish.style.display = "inline-block";
-  } else{
-    buttonEnglish.style.display = "none";
-    buttonSpanish.style.display = "none";
 
+function traducirEspañol(){
+
+}
+
+function traducirIngles(){
+  
+}
+
+
+function cambiarIdioma(){
+  if(idiomasVisibles){
+    traducirEspañol();
+  } else{
+    traducirIngles();
   }
   idiomasVisibles = !idiomasVisibles;
 }
 
-globeIcon.addEventListener("click", desplegarIdiomas);
+globeIcon.addEventListener("click", cambiarIdioma);
 
 
 
@@ -290,3 +297,59 @@ function seguirLeyendo(){
 
 showMoreButton.addEventListener("click", seguirLeyendo);
 
+//Cambiar el alineamiento de los párrafos y de los li
+const align = document.getElementById("align");
+const paragraphs = document.querySelectorAll("p"); 
+const lis = document.querySelectorAll("li");
+
+align.addEventListener("click", function () {
+  if (paragraphs[0].style.textAlign === "justify") {
+    paragraphs.forEach(paragraph => {
+      paragraph.style.textAlign = "right";
+    });
+    lis.forEach(li => {
+      li.style.textAlign = "right";
+    })
+    align.className = "fa fa-align-right";
+    align.style.scale = "2";
+  } else if (paragraphs[0].style.textAlign === "right") {
+    paragraphs.forEach(paragraph => {
+      paragraph.style.textAlign = "left";
+    });
+    lis.forEach(li => {
+      li.style.textAlign = "left";
+    })
+    align.className = "fa fa-align-left";
+    align.style.scale = "2";
+  } else {
+    paragraphs.forEach(paragraph => {
+      paragraph.style.textAlign = "justify";
+    });
+    lis.forEach(li => {
+      li.style.textAlign = "justify";
+    })
+    align.className = "fa fa-align-justify";
+    align.style.scale = "2";
+  }
+});
+
+
+//cambiar estilo de listas
+
+const lists = document.querySelectorAll("ol");
+const listButton = document.getElementById("listButton");
+
+listButton.addEventListener("click", function(){
+  if (lists[0].style.listStyle === "decimal"  ) {
+    lists.forEach(list => {
+      list.style.listStyle = "circle"
+      listButton.className = "fa fa-list-ul"
+      listButton.style.scale = "2";
+    })
+  } else {
+    lists.forEach(list => {
+      list.style.listStyle = "decimal"})
+      listButton.className = "fa fa-list-ol"
+      listButton.style.scale = "2";
+  }
+});

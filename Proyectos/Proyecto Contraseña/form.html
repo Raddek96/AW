@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="formStyle.css" />
+    <title>Contact me :D</title>
+    <link rel="icon" href="http://findicons.com/files/icons/2232/wireframe_mono/32/mail.png" />
+</head>
+<body>
+    <div class="formulario">
+    <form method="post" action="#">
+        <label for="Nombre" required >Nombre<span class="red"> *</span></label>
+        <input type="text" name="Nombre" />
+
+        <label for="Apellidos" required >Apellidos<span class="red"> *</span></label>
+        <input type="text" name="Apellidos" />
+
+        <label for="email" required >Email<span class="red"> *</span></label>
+        <input type="email" name="email" />
+
+        <label for="Telefono">Telefono</label>
+        <input type="number" name="Telefono" />
+
+        <label>Nivel de urgencia</label>
+        <input type="radio" name="urgencia">
+        <input type="radio" name="urgencia">
+
+        <label for="Asunto" required >Asunto<span class="red"> *</span></label>
+        <input type="text" name="Asunto" />
+        
+        <textarea></textarea>
+
+        <input type="submit" value="Enviar"/>
+        
+        <p><span class="red">* </span> los campos son obligatorios</p>
+        
+    </form>
+    </div>
+</body>
+</html>
+<!--Formulario:
+
+    Nombre
+    Apellidos
+    Email
+    Teléfono
+    Asunto
+    Mensaje
+    Urgencia
+
+-->
