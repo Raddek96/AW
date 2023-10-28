@@ -4,8 +4,10 @@ En este directorio almacenaré distintos ejericios hechos en **Javascipt** para 
 
 Ejercicios hechos hasta ahora:
 
-[Piedra, papel y tijera](PiedraPapelTijera/PPT.js)
-[FizzBuzz](FizzBuzz.js)
+[Piedra, papel y tijera](PiedraPapelTijera/PPT.js)  
+
+[FizzBuzz](FizzBuzz.js)  
+
 [Tabla de multiplicar](tablaMultiplicar/tablaMultiplicar.js)
 
 
