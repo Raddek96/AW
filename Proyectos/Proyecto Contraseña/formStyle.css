@@ -14,4 +14,14 @@ div.formulario {
     background-color: beige;
     display: flex;
     margin: 100px auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+input {
+    width: 200px;
+    height: 25px;
+    border-radius: 10px;
+}
+

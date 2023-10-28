@@ -8,35 +8,44 @@
     <link rel="icon" href="http://findicons.com/files/icons/2232/wireframe_mono/32/mail.png" />
 </head>
 <body>
-    <div class="formulario">
+    
     <form method="post" action="#">
-        <label for="Nombre" required >Nombre<span class="red"> *</span></label>
-        <input type="text" name="Nombre" />
+        <h1>Form Contat</h1> 
+        <div class="formulario">
 
-        <label for="Apellidos" required >Apellidos<span class="red"> *</span></label>
-        <input type="text" name="Apellidos" />
+           
+        <label for="Nombre">Nombre<span class="red"> *</span></label>
+        <input type="text" name="Nombre" placeholder="John" required />
 
-        <label for="email" required >Email<span class="red"> *</span></label>
-        <input type="email" name="email" />
+        <label for="Apellidos" >Apellidos<span class="red"> *</span></label>
+        <input type="text" name="Apellidos" placeholder="Smith"  required />
+
+        <label for="email">Email<span class="red"> *</span></label>
+        <input type="email" name="email" placeholder="johnsmith@yahoo.com"  required />
 
         <label for="Telefono">Telefono</label>
-        <input type="number" name="Telefono" />
+        <input type="number" name="Telefono" placeholder="+1" />
 
         <label>Nivel de urgencia</label>
+        <div class="radios">
+            <label for="urgencia">Bajo</label>
         <input type="radio" name="urgencia">
+        <label for="urgencia">Alto</label>
         <input type="radio" name="urgencia">
+        </div>
 
-        <label for="Asunto" required >Asunto<span class="red"> *</span></label>
-        <input type="text" name="Asunto" />
+        <label for="Asunto"  >Asunto<span class="red"> *</span></label>
+        <input type="text" name="Asunto" placeholder="Informarme" required />
         
-        <textarea></textarea>
+        <textarea placeholder="Te escribo porque me gustaría obtener más información sobre... "></textarea>
 
         <input type="submit" value="Enviar"/>
         
         <p><span class="red">* </span> los campos son obligatorios</p>
-        
-    </form>
+     
     </div>
+    </form>
+    
 </body>
 </html>
 <!--Formulario:
