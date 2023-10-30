@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+div.container{
+    width: 1000px;
+    height: 250px;
+    background: burlywood;
+    animation-name: animacion;
+    animation-duration: 2s;
+    position: relative;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animacion {
+    0% {
+        top: 20px;
+        left: -1000px;
+    }
+    20% {
+        top: 20px;
+        left: 450px;
+    }
+    30% {
+        top: 20px;
+        left: 400px;
+    }
+
+    40% {
+        top: 20px;
+        left: 420px;
+    }
+    50% {
+        top: 20px;
+        left: 450px;
+    }
+    100%{
+        top: 20px;
+        left: 450px;
+    }
+}
