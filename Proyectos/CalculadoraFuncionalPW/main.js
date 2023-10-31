@@ -112,7 +112,3 @@ botones.forEach(boton => {
 });
 
 
-<<<<<<< HEAD
-=======
-//Falta por inclui el punto para que no se borre el cero incial, y hacer la variable tecla global
->>>>>>> 8a561da (..)

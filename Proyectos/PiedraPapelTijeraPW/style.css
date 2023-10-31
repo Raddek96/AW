@@ -13,7 +13,7 @@ div.container{
     animation-duration: 2s;
     position: relative;
     animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
 }
 
 @keyframes animacion {
