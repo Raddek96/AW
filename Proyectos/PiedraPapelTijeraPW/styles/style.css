@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../img/fondo.jpg);
+    background-size: cover;
+    background-position: bottom;
+    backdrop-filter: blur(10px);
+     background-attachment: fixed
+}
+
+div.bodyContainer  {
+    display: grid;
+    width: 1200px;
+    height: 400px;
+    background-color: aqua;
+    grid-template-columns:  repeat(3, 300px);
+    grid-template-rows: 300px;
+    margin: 300px auto;
+    justify-content: center;
+    align-content: center;
+    gap: 100px;
+}
+
+img.objetos {
+    transition: scale .5s;
+}
+img.objetos:nth-child(1) {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+img.objetos:nth-child(1):hover {
+    scale: 120%;
+}
+
+
+img.objetos:nth-child(2) {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+img.objetos:nth-child(2):hover {
+    scale: 120%;
+    
+}
+
+img.objetos:nth-child(3) {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+img.objetos:nth-child(3):hover {
+    scale: 120%;
+}
+
+
+div.afterContainer {
+    display: grid;
+    width: 1200px;
+    height: 400px;
+    background-color: burlywood;
+    grid-template-columns:  repeat(3, 300px);
+    grid-template-rows: 300px;
+    margin: 300px auto;
+    justify-content: center;
+    align-content: center;
+    gap: 100px;
+}

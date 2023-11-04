@@ -1,0 +1,50 @@
+div.titleContainer {
+    display: flex;
+    width: 600px;
+    height: 100px;
+    background-color: aqua;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    animation: titulo 1.2s 1 linear forwards;
+    transform: translateY(-150px);
+}
+
+h1 {
+    
+}
+
+@keyframes titulo {
+10%{
+    transform: translateY(-135px);
+}
+20%{
+    transform: translateY(-120px);
+}
+30%{
+    transform: translateY(-105px);
+}
+40%{
+    transform: translateY(-90px);
+}
+50%{
+    transform: translateY(-75px);
+}
+60%{
+    transform: translateY(-60px);
+}
+70%{
+    transform: translateY(-45px);
+}
+80%{
+    transform: translateY(-30px);
+}
+90%{
+    transform: translateY(-15px);
+}
+100%{
+    transform: translateY(0px);
+}
+
+
+}

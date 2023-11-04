@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://cdn3.iconfinder.com/data/icons/brain-games/128/Board-Games-grey.png"/>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/titleStyle.css"/>
     <title>PPT</title>
 </head>
 <body>
-    <div class="container">
+    <div class="titleContainer">
         <h1>Piedra, papel y Tijeras</h1>
     </div>
 
+    <div class="bodyContainer" id="bodyContainer">
+            <img class="objetos" id="piedra" src="img/piedraB.png" alt="">
+            <img class="objetos" id="papel" src="img/papelB.png" alt="">
+            <img class="objetos" id="tijera" src="img/tijeraB.png" alt="">
+    </div>
+
+    <div class="afterContainer">
+        <div>
+            <h2>Tu elección</h2>
+            <img class="objetos" id="imagenEleccion" src="img/" alt="">
+        </div>
+        <div><img class="objetos" src="img/vs.png" alt=""></div>
+        <div><img class="objetos" id="imagenEleccionMaquina" src="img/piedraB.png" alt="">
+        </div>
+        
+    </div>
 
     <script src="main.js"></script>
 </body>
