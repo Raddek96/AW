@@ -5,6 +5,31 @@
 
 
 
+//Animación del principio
+
+const A = document.getElementById("gabriel");
+const gabrielElement = document.querySelector('.gabriel');
+const CalculadoraVisibilidad = document.getElementById("CalculadoraVisibilidad");
+const radek = document.getElementById("radek");
+
+
+A.addEventListener("click", () => {
+    gabrielElement.classList.toggle("gabriel-animation");
+    gabrielElement.style.animationPlayState = 'running';
+    gabrielElement.textContent = "";
+
+    setTimeout(() => {
+        CalculadoraVisibilidad.style.display = "grid";
+        gabrielElement.style.display = "none"
+        document.body.style.background = "#252525"
+        radek.style.display = "none";
+    }, 1500)
+    
+})
+
+
+
+
 // Selección de todos los elementos con la clase "btn" y el elemento con la clase "pantalla"
 const botones = document.querySelectorAll(".btn");
 const pantalla = document.querySelector(".pantalla");
