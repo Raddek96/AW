@@ -23,7 +23,8 @@ A.addEventListener("click", () => {
         gabrielElement.style.display = "none"
         document.body.style.background = "#252525"
         radek.style.display = "none";
-    }, 1500)
+        CalculadoraVisibilidad.style.animationPlayState = "running";
+    }, 1000)
     
 })
 

@@ -82,7 +82,20 @@ div.calculadora {
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
     transform: scale(2);
     display: none;
+    animation: visibilidad 0.5s linear forwards;
+    animation-play-state: paused;
+    
 
+}
+
+@keyframes visibilidad {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
 }
 
 
