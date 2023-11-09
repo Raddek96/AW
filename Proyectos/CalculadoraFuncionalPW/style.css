@@ -23,7 +23,7 @@ div.gabriel {
 }
 
 div.gabriel-animation {
-    animation: gabriel 1.5s linear forwards;
+    animation: gabriel .5s linear forwards;
     animation-fill-mode: forwards;
 }
 
@@ -47,11 +47,11 @@ a {
 
 @keyframes gabriel {
     0% {
-        transform: rotate(0deg) scale(1);
+        transform: scale(1);
     }
 
     100% {
-        transform: rotate(360deg) scale(12);
+        transform: scale(12);
 
     }
 }
