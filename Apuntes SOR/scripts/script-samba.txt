@@ -1,9 +1,13 @@
 #!/bin/bash
 
-IPSERVER=172.16.5.10
-DOMINIOMIN=iesallerrl
-DOMINIOMAS=IESALLERRL
-HOSTNAME=dserver00
+
+IPSERVER=$(hostname -I)
+
+echo "Introduce tu dominio en minúsculas  (sin extensión; por ejemplo, iesallerrl )"
+read DOMINIOMIN
+DOMINIOMAS=$(echo "$DOMINIOMIN" | tr '[:lower:]' '[:upper:]')
+
+HOSTNAME=$(hostname)
 
 
 apt update
