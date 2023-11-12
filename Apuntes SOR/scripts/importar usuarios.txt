@@ -1,0 +1,53 @@
+#!/bin/bash
+
+echo "Introduce el dominio en minúsculas (sin extensión; ejemplo: iesallerrl)"
+read DOMINIOMIN
+HOSTNAME=$(hostname)
+
+#Introducimos en /etc/samba/smb.conf ldap server require strong auth = no
+
+sed -i '/^\[global\]/a \\tldap server require strong auth = no' /etc/samba/smb.conf
+sleep 1
+
+systemctl stop samba-ad-dc
+systemctl start samba-ad-dc
+sleep 2
+
+
+# Instalar nslcd
+apt install nslcd -y
+sleep 10
+
+# Reiniciar el servicio para aplicar cambios
+systemctl restart nslcd
+sleep 2
+
+#Añadimos esto en el archivo de configuración en /etc/nslcd.conf
+
+echo "pagesize 1000" >> /etc/nslcd.conf
+echo "referrals off" >> /etc/nslcd.conf
+echo "" >> /etc/nslcd.conf
+echo "# Filters" >> /etc/nslcd.conf
+echo 'filter passwd (objectClass=user)' >> /etc/nslcd.conf
+echo 'filter group (objectClass=group)' >> /etc/nslcd.conf
+echo "" >> /etc/nslcd.conf
+echo "# Attribute mappings" >> /etc/nslcd.conf
+echo "map passwd uid sAMAccountName" >> /etc/nslcd.conf
+echo "map passwd homeDirectory unixHomeDirectory" >> /etc/nslcd.conf
+echo "map passwd gecos displayName" >> /etc/nslcd.conf
+echo "map passwd gidNumber primaryGroupID" >> /etc/nslcd.conf
+echo "" >> /etc/nslcd.conf
+echo "# LDAP bind" >> /etc/nslcd.conf
+echo "binddn cn=Administrator,cn=Users,dc=$DOMINIOMIN,dc=local" >> /etc/nslcd.conf
+echo "bindpw abc123." >> /etc/nslcd.conf
+
+
+
+
+systemctl restart nslcd
+
+#Creación de usuario de prueba
+samba-tool user add pepe abc123. --uid-number=10022
+sleep 2
+getent passwd
+
