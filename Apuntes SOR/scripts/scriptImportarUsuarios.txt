@@ -7,8 +7,10 @@ read DOMINIOMIN
 HOSTNAME=$(hostname)
 
 #Introducimos en /etc/samba/smb.conf ldap server require strong auth = no
+#Tambien introducimos hide unreadable = yes
 
 sed -i '/^\[global\]/a \\tldap server require strong auth = no' /etc/samba/smb.conf
+sed -i '/^\[global\]/a \\thide unreadable = yes' /etc/samba/smb.conf
 sleep 1
 
 systemctl stop samba-ad-dc
