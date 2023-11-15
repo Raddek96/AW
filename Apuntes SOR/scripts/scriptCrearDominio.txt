@@ -30,7 +30,7 @@ sed -i "s/.*/domain $DOMINIOMIN.local\nsearch $DOMINIOMIN.local\nnameserver $IPS
 sleep 2
 
 #Configuración del archivo hosts
-sed -i "s/\(127\.0\.1\.1[[:space:]]*\).*/\1$HOSTNAME.$DOMINIOMIN.local/" /etc/hosts
+sed -i "s/\(127\.0\.1\.1[[:space:]]*\).*/\1$HOSTNAME.$DOMINIOMIN.local $HOSTNAME/" /etc/hosts
 sleep 2
 
 #Configuración del archivo hosts
