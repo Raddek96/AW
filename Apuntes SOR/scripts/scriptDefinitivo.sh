@@ -164,7 +164,7 @@ samba-tool user delete usuarioPrueba
 
 #Instalación de servicios a usar
 echo "Instalación de mdadm, acl, y quota."
-apt install mdadm acl quota -y
+apt install mdadm acl fbgrab tree quota -y
 
 echo "Creación del RAID"
 sleep 2
@@ -212,8 +212,11 @@ samba-tool group add g-aux --groupou=OU=uoaux,OU=uouser --gid-number=20002 --nis
 
 #Creación de los usuarios y ubicarlos en su uo correspondiente
 samba-tool domain passwordsettings set --max-pwd-age=0
-samba-tool user create uadm1 abc123. --userou=OU=uoadm,OU=uouser --uid-number=10000 --profilepath="\\$HOSTNAME\users\diradmin\%username%" --homedrive=P: --homepath="\\$HOSTNAME\users\PerfisWindows\%username"
-samba-tool user create uaux1 abc123. --userou=OU=uoaux,OU=uouser --uid-number=10001 --profilepath="\\$HOSTNAME\users\diraux\%username%" --homedrive=P: --homepath="\\$HOSTNAME\users\PerfisWindows\%username" 
+samba-tool user create uadm1 abc123. --userou=OU=uoadm,OU=uouser --uid-number=10000 --home-directory="\\$HOSTNAME\users\diradmin\%username%" --home-drive=P --profile="\\\\$HOSTNAME\users\PerfisWindows\%username%"
+samba-tool user create uaux1 abc123. --userou=OU=uoaux,OU=uouser --uid-number=10001 --home-directory="\\$HOSTNAME\users\diraux\%username%" --home-drive=P --profile="\\\\$HOSTNAME\users\PerfisWindows\%username%"
+##PRUEBAS
+samba-tool user create uaux6 abc123. --userou=OU=uoaux,OU=uouser --uid-number=10001 --home-directory="\\$HOSTNAME\users\diraux\%username%"  --profile="\\\\$HOSTNAME\users\PerfisWindows\%username%"
+ 
 
 
 
