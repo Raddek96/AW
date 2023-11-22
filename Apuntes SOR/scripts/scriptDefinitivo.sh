@@ -17,49 +17,38 @@ echo  ""
 echo "Script hecho por Radek Lisiecki :D"
 
 
+##Cosas que revisar antes de ejecutar el script
+#1. Que hayas metido 2 discos para la creación del RAID
+#2. Que hayas cambiado el hostname al que se indica en el ejercicio
+#3. Que puedas hacer un ping a una web, es decir que tengas acceso a internet
+#4. Que la máquina este en la red correcta con la configuración de red correcta
+#5. Que te puedas meter por ssh a la máquina
+#6. Que en /etc/hosts la segunda línea sea 127.0.1.1
+
+
 ##VARIABLES A MODIFICAR SEGÚN EL ENUNCIADO DEL EJERCICIO
 
-DIRECTORIOCOMPARTIDO=users
+DIRECTORIOCOMPARTIDO=usuarios
 
 SUBDIRECTORIOA=diradmin
 SUBDIRECTORIOB=diraux
 PERFISWINDOWS=PerfisWindows
 PERFISLINUX=PerfisLinux
 
-OUPADRE=uouser
-OUHIJOA=uoadm
-OUHIJOB=uoaux
+OUPADRE=uousuarios
+OUHIJOA=uoadministracion
+OUHIJOB=uouxiliares
 
 USERA=uadm1
 USERB=uaux1
 
-GRUPOPADRE=g-user
-GRUPOA=g-adm
-GRUPOB=g-aux
+GRUPOPADRE=g-usuarios
+GRUPOA=g-administracion
+GRUPOB=g-auxiliares
 
+DOMINIOMIN=domilalinrl
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+MONTAJE=/raiddatos
 
 ##TODOS LOS COMENTARIOS QUE ESTEAN ENTRE * SON LA EXPLIACIÓN DEL SIGUIENTE COMANDO
 #Variables que se usarán en la ejecución de este script
@@ -69,13 +58,18 @@ IPSERVER=$(hostname -I)
 #*Se almacena en la variable HOSTNAME el hostname del servidor*
 HOSTNAME=$(hostname)
 
-#*Se almacena en la variable DOMINIOMIN el nombre del dominio*
-echo "Introduce tu dominio en minúsculas y sin extensión como por ejemplo, iesallerrl"
-read DOMINIOMIN
 
-#*Se almacena en la variable MONTAJE la ruta sobre la que vas a montar el RAID*
-echo "Introduce la ruta de tu directorio sobre el que montarás el RAID, ejemplo /datos" 
-read MONTAJE
+#*Se muestra todas las variables al usuario para que pueda confirmar si tiene todo bien escrito, es espera un ENTER para continuar*
+echo "Antes de continuar, comprueba que todas las variables contienen los datos correctos" 
+echo "Tu dominio es: $DOMINIOMIN"
+echo "El nombre de tu recurso compartido es: $DIRECTORIOCOMPARTIDO"
+echo "Tu punto de montaje del RAID es: $MONTAJE y sus subdirectorios son $SUBDIRECTORIOA, $SUBDIRECTORIOB, $PERFISWINDOWS Y $PERFISLINUX"
+echo "Tu estructura es: $OUPADRE:$GRUPOPADRE = Unidad organizativa y grupo principal,a este pertenecen todos los usuarios"
+echo "Tu estructura es: $OUHIJOA:$GRUPOA:$USERA = Unidad organizativa hija, grupo y user 1"
+echo "Tu estructura es: $OUHIJOB:$GRUPOB:$USERB = Unidad organizativa hija, grupo y user 1"
+read -p "Presiona ENTER para continuar con la ejecución del script"
+
+
 
 #*Se almacena en la variable DOMINIOMAS el valor de $DOMINIOMIN EN MAYÚSCULAS GRACIAS al COMANDO tr que permite la transliteración de caracteres de minúscula a mayúscula.*
 DOMINIOMAS=$(echo "$DOMINIOMIN" | tr '[:lower:]' '[:upper:]')
@@ -101,7 +95,7 @@ sed -i -e 's/^pool 0.*/server 0.es.pool.ntp.org/' \
        -e 's/^pool 2.*/server 2.es.pool.ntp.org/' \
        -e 's/^pool 3.*/server 3.es.pool.ntp.org/' /etc/ntpsec/ntp.conf
 
-
+#Reiniciamos el servicio ntpsec
 systemctl restart ntpsec.service
 echo "Servicio NTP instalado y configurado correctamente"
 sleep 2
@@ -129,10 +123,10 @@ sleep 2
 #Configuración del archivo hosts
 #*sed -i nos permite modificar directamente el archivo en vez de redirigir la salida a otro archivo*
 #*la s indica que se va a realizar una operación de sustitución*
-#*/ indica el comienzo del primer patrón, \( sirve para interpretar el paréntesis como un caracter al igual de \.*
+#*/ indica el comienzo del primer patrón, \( sirve para interpretar el paréntesis como el inicio del valor que se recoge en \1 al igual de \.*
 #*[[:space:]]*\ esto indica que hay espacios en blanco, el * indica que no se especifica cuantos espacios en blanco hay*
-#*\).*, interpreta el paréntesis como caracter y el .* indica que puede haber cualquier cosa después*
-#*\1 se refiere al primer patrón *
+#*\).*, interpreta el paréntesis el símbolo el primer valor que se recoge en \1 y el .* indica que puede haber cualquier cosa después*
+#*\1 se refiere al valor recogido entre los paréntesis
 sed -i "s/\(127\.0\.1\.1[[:space:]]*\).*/\1$HOSTNAME $HOSTNAME.$DOMINIOMIN.local/" /etc/hosts
 sleep 2
 
@@ -142,13 +136,17 @@ echo "Dominio promocionado correctamente"
 sleep 3
 
 #Añadir parametros a [global] en /etc/samba/smb.conf
+#*sed -i nos permite modificar directamente el archivo en vez de redirigir la salida a otro archivo*
+#*/ indica el comienzo del patón que va a buscar, ^ significa principio de linea \[global\] sirve para escapar los corchetes y buscar tal cual [global]*
+#*/ indica el final del patrón de búsqueda, a\ indica "append" es decir, que lo siguiente que haya después del append se va a añadir en global, por ello no necesitamos que sea otro rango*
+#*\t indica una tabulación*
 sed -i '/dns forwarder/d' /etc/samba/smb.conf
 sed -i '/^\[global\]/ a\ \tallow dns updates = nonsecure' /etc/samba/smb.conf
 sed -i '/^\[global\]/ a\ \tdns forwarder = 8.8.8.8' /etc/samba/smb.conf
 sed -i '/^\[global\]/ a\ \tldap server require strong auth = no' /etc/samba/smb.conf
 sed -i '/^\[global\]/ a\ \thide unreadable = yes' /etc/samba/smb.conf
 
-#Detener y desactivar servicio smbd, nmbd y winbind
+#Detener y desactivar servicio smbd, nmbd y winbind y activar el servicio samba-ad-dc
 systemctl stop smbd nmbd winbind
 systemctl disable smbd nmbd winbind
 systemctl unmask samba-ad-dc
@@ -189,25 +187,30 @@ echo "# LDAP bind" >> /etc/nslcd.conf
 echo "binddn cn=Administrator,cn=Users,dc=$DOMINIOMIN,dc=local" >> /etc/nslcd.conf
 echo "bindpw abc123." >> /etc/nslcd.conf
 
+#Reiniciando el servicio nslcd
 systemctl restart nslcd
 
 #Creación de usuario de prueba
 samba-tool user add usuarioPrueba abc123. --uid-number=10022
+
+#Añadiendo gidNumber a "Domain Admins"
 samba-tool group addunixattrs "Domain Admins" 20010
 
 
 
 sleep 2
 
+#Importando usuaios y filtrando para que únicamente nos muestre usuarioPrueba
 getent passwd | grep usuarioPrueba
 
 read -p "Usuarios y grupos importados correctamente, presiona ENTER para continuar"
 
+#Elimina el usuario: usuarioPrueba
 samba-tool user delete usuarioPrueba
 
 
-#Instalación de servicios a usar
-echo "Instalación de mdadm, acl, y quota."
+#Instalación de servicios a usar posteriormente
+echo "Instalación de mdadm, acl, y quota, entre otros..."
 apt install mdadm acl fbgrab tree quota -y
 
 echo "Creación del RAID"
@@ -219,11 +222,11 @@ sleep 2
 ##CREACIÓN DEL RAID
 
 
-#Creación del raid
+#Creación del raid, el yes | sirve para saltarnos la confirmación que nos pide al crear el RAID
 yes | mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb /dev/sdc
 sleep 10
 
-#Creación del directorio y subdirectorios
+#Creación del directorio y subdirectorios, actualizando y formateando el disco, montándolo en fstab, etc.
 mkdir $MONTAJE
 mdadm --detail --scan >> /etc/mdadm/mdadm.conf
 yes | mkfs.ext4 /dev/md0
@@ -233,11 +236,13 @@ systemctl daemon-reload
 mount -a
 mount | grep md0
 mkdir $MONTAJE/$SUBDIRECTORIOA $MONTAJE/$SUBDIRECTORIOB $MONTAJE/PerfisWindows $MONTAJE/PerfisLinux
+
+#Permisos esenciales
 chown -R root:root $MONTAJE
 chmod -R 770 $MONTAJE
 chmod 775 $MONTAJE
 
-#Compartir recurso de nombre users.
+#Compartir recurso del valor de la variableDIRECTORIOCOMPARTIDO.
 #-e para que interprete \ para escapar caracteres
 echo -e "[$DIRECTORIOCOMPARTIDO]\n\tpath = $MONTAJE\n\tread only = No" >> /etc/samba/smb.conf
 
@@ -254,10 +259,12 @@ samba-tool group add $GRUPOPADRE --groupou=OU=$OUPADRE --gid-number=20000 --nis-
 samba-tool group add $GRUPOA --groupou=OU=$OUHIJOA,OU=$OUPADRE --gid-number=20001 --nis-domain=$DOMINIOMIN.local
 samba-tool group add $GRUPOB --groupou=OU=$OUHIJOB,OU=$OUPADRE --gid-number=20002 --nis-domain=$DOMINIOMIN.local
 
-#Creación de los usuarios y ubicarlos en su uo correspondiente
+
+#Hacer que las contraseñas nuncan caduquen
 samba-tool domain passwordsettings set --max-pwd-age=0
-samba-tool user create $USERA abc123. --userou=OU=$OUHIJOA,OU=$OUPADRE --uid-number=10000 --home-directory="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\\$SUBDIRECTORIOA\%username%" --home-drive=P --profile="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\PerfisWindows\%username%"
-samba-tool user create $USERB abc123. --userou=OU=$OUHIJOB,OU=$OUPADRE --uid-number=10001 --home-directory="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\\$SUBDIRECTORIOB\%username%" --home-drive=P --profile="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\PerfisWindows\%username%"
+#Creación de los usuarios y ubicarlos en su uo correspondiente
+samba-tool user create $USERA abc123. --userou=OU=$OUHIJOA,OU=$OUPADRE --uid-number=10000 --home-directory="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\\$SUBDIRECTORIOA\\$USERA" --home-drive=P --profile="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\\$PERFISWINDOWS\\$USERA"
+samba-tool user create $USERB abc123. --userou=OU=$OUHIJOB,OU=$OUPADRE --uid-number=10001 --home-directory="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\\$SUBDIRECTORIOB\\$USERB" --home-drive=P --profile="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\\$PERFISLINUX\\$USERB"
 
 
 
@@ -276,13 +283,13 @@ setfacl -m g:$GRUPOPADRE:r-x $MONTAJE
 setfacl -m g:"Domain Admins":rwx $MONTAJE
 setfacl -dm g:"Domain Admins":rwx $MONTAJE
 
-#Directorio diradmin
+#Directorio hijo 1
 setfacl -m g:"Domain Admins":rwx $MONTAJE/$SUBDIRECTORIOA
 setfacl -m g:$GRUPOA:r-x $MONTAJE/$SUBDIRECTORIOA
 setfacl -dm g::--- $MONTAJE/$SUBDIRECTORIOA
 setfacl -dm o:--- $MONTAJE/$SUBDIRECTORIOA
 
-#Directorio diraux
+#Directorio hijo 2
 setfacl -m g:"Domain Admins":rwx $MONTAJE/$SUBDIRECTORIOB
 setfacl -m g:$GRUPOB:r-x $MONTAJE/$SUBDIRECTORIOB
 setfacl -dm g::--- $MONTAJE/$SUBDIRECTORIOB
