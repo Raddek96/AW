@@ -17,6 +17,50 @@ echo  ""
 echo "Script hecho por Radek Lisiecki :D"
 
 
+##VARIABLES A MODIFICAR SEGÚN EL ENUNCIADO DEL EJERCICIO
+
+DIRECTORIOCOMPARTIDO=users
+
+SUBDIRECTORIOA=diradmin
+SUBDIRECTORIOB=diraux
+PERFISWINDOWS=PerfisWindows
+PERFISLINUX=PerfisLinux
+
+OUPADRE=uouser
+OUHIJOA=uoadm
+OUHIJOB=uoaux
+
+USERA=uadm1
+USERB=uaux1
+
+GRUPOPADRE=g-user
+GRUPOA=g-adm
+GRUPOB=g-aux
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ##TODOS LOS COMENTARIOS QUE ESTEAN ENTRE * SON LA EXPLIACIÓN DEL SIGUIENTE COMANDO
 #Variables que se usarán en la ejecución de este script
 
@@ -188,69 +232,67 @@ echo "/dev/md0 $MONTAJE ext4 user_xattr,acl,usrquota,grpquota 0 2" >> /etc/fstab
 systemctl daemon-reload
 mount -a
 mount | grep md0
-mkdir $MONTAJE/diradmin $MONTAJE/diraux $MONTAJE/PerfisWindows $MONTAJE/PerfisLinux
+mkdir $MONTAJE/$SUBDIRECTORIOA $MONTAJE/$SUBDIRECTORIOB $MONTAJE/PerfisWindows $MONTAJE/PerfisLinux
 chown -R root:root $MONTAJE
 chmod -R 770 $MONTAJE
 chmod 775 $MONTAJE
 
 #Compartir recurso de nombre users.
 #-e para que interprete \ para escapar caracteres
-echo -e "[users]\n\tpath = $MONTAJE\n\tread only = No" >> /etc/samba/smb.conf
+echo -e "[$DIRECTORIOCOMPARTIDO]\n\tpath = $MONTAJE\n\tread only = No" >> /etc/samba/smb.conf
 
 
 #Creación de usuarios, grupos y unidades organizativas (adaptado para el ejercicio de práctica)
 #Creación de las unidades organizativas (En este caso uoadm y uoaux estarán dentro de uouser)
-samba-tool ou create "OU=uouser,DC=iesallerrl,DC=local"
-samba-tool ou create "OU=uoadm,OU=uouser,DC=iesallerrl,DC=local"
-samba-tool ou create "OU=uoaux,OU=uouser,DC=iesallerrl,DC=local"
+samba-tool ou create "OU=$OUPADRE,DC=$DOMINIOMIN,DC=local"
+samba-tool ou create "OU=$OUHIJOA,OU=$OUPADRE,DC=$DOMINIOMIN,DC=local"
+samba-tool ou create "OU=$OUHIJOB,OU=$OUPADRE,DC=$DOMINIOMIN,DC=local"
 
 
 #Creación de los grupos y ubicarlos en su uo correspondiente
-samba-tool group add g-user --groupou=OU=uouser --gid-number=20000 --nis-domain=iesallerrl.local
-samba-tool group add g-adm --groupou=OU=uoadm,OU=uouser --gid-number=20001 --nis-domain=iesallerrl.local
-samba-tool group add g-aux --groupou=OU=uoaux,OU=uouser --gid-number=20002 --nis-domain=iesallerrl.local
+samba-tool group add $GRUPOPADRE --groupou=OU=$OUPADRE --gid-number=20000 --nis-domain=$DOMINIOMIN.local
+samba-tool group add $GRUPOA --groupou=OU=$OUHIJOA,OU=$OUPADRE --gid-number=20001 --nis-domain=$DOMINIOMIN.local
+samba-tool group add $GRUPOB --groupou=OU=$OUHIJOB,OU=$OUPADRE --gid-number=20002 --nis-domain=$DOMINIOMIN.local
 
 #Creación de los usuarios y ubicarlos en su uo correspondiente
 samba-tool domain passwordsettings set --max-pwd-age=0
-samba-tool user create uadm1 abc123. --userou=OU=uoadm,OU=uouser --uid-number=10000 --home-directory="\\$HOSTNAME\users\diradmin\%username%" --home-drive=P --profile="\\\\$HOSTNAME\users\PerfisWindows\%username%"
-samba-tool user create uaux1 abc123. --userou=OU=uoaux,OU=uouser --uid-number=10001 --home-directory="\\$HOSTNAME\users\diraux\%username%" --home-drive=P --profile="\\\\$HOSTNAME\users\PerfisWindows\%username%"
-##PRUEBAS
-samba-tool user create uaux6 abc123. --userou=OU=uoaux,OU=uouser --uid-number=10001 --home-directory="\\$HOSTNAME\users\diraux\%username%"  --profile="\\\\$HOSTNAME\users\PerfisWindows\%username%"
- 
+samba-tool user create $USERA abc123. --userou=OU=$OUHIJOA,OU=$OUPADRE --uid-number=10000 --home-directory="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\\$SUBDIRECTORIOA\%username%" --home-drive=P --profile="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\PerfisWindows\%username%"
+samba-tool user create $USERB abc123. --userou=OU=$OUHIJOB,OU=$OUPADRE --uid-number=10001 --home-directory="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\\$SUBDIRECTORIOB\%username%" --home-drive=P --profile="\\\\$HOSTNAME\\$DIRECTORIOCOMPARTIDO\PerfisWindows\%username%"
+
 
 
 
 #Añadir los usuarios a sus grupos correspondientes
-samba-tool group addmembers g-user uadm1 
-samba-tool group addmembers g-user uaux1
-samba-tool group addmembers g-adm uadm1 
-samba-tool group addmembers g-aux  uaux1
+samba-tool group addmembers $GRUPOPADRE $USERA 
+samba-tool group addmembers $GRUPOPADRE $USERB
+samba-tool group addmembers $GRUPOA $USERA 
+samba-tool group addmembers $GRUPOB  $USERB
 
 
 #ACL
 
 #Directorio padre
-setfacl -m g:g-user:r-x $MONTAJE
+setfacl -m g:$GRUPOPADRE:r-x $MONTAJE
 setfacl -m g:"Domain Admins":rwx $MONTAJE
 setfacl -dm g:"Domain Admins":rwx $MONTAJE
 
 #Directorio diradmin
-setfacl -m g:"Domain Admins":rwx $MONTAJE/diradmin
-setfacl -m g:g-adm:r-x $MONTAJE/diradmin
-setfacl -dm g::--- $MONTAJE/diradmin
-setfacl -dm o:--- $MONTAJE/diradmin
+setfacl -m g:"Domain Admins":rwx $MONTAJE/$SUBDIRECTORIOA
+setfacl -m g:$GRUPOA:r-x $MONTAJE/$SUBDIRECTORIOA
+setfacl -dm g::--- $MONTAJE/$SUBDIRECTORIOA
+setfacl -dm o:--- $MONTAJE/$SUBDIRECTORIOA
 
 #Directorio diraux
-setfacl -m g:"Domain Admins":rwx $MONTAJE/diraux
-setfacl -m g:g-aux:r-x $MONTAJE/diraux
-setfacl -dm g::--- $MONTAJE/diraux
-setfacl -dm o:--- $MONTAJE/diraux
+setfacl -m g:"Domain Admins":rwx $MONTAJE/$SUBDIRECTORIOB
+setfacl -m g:$GRUPOB:r-x $MONTAJE/$SUBDIRECTORIOB
+setfacl -dm g::--- $MONTAJE/$SUBDIRECTORIOB
+setfacl -dm o:--- $MONTAJE/$SUBDIRECTORIOB
 
 #Directorio PerfisWindows
-setfacl -m g:g-user:rwx $MONTAJE/PerfisWindows
+setfacl -m g:$GRUPOPADRE:rwx $MONTAJE/$PERFISWINDOWS
 
 #Directorio PerfisLinux
-setfacl -m g:g-user:rwx $MONTAJE/PerfisLinux
+setfacl -m g:$GRUPOPADRE:rwx $MONTAJE/$PERFISLINUX
 
 #Quotas
 
@@ -258,5 +300,5 @@ quotaoff -avug
 quotacheck -avug
 quotaon -avug
 
-setquota -u uadm1 150000 300000 0 0 /dev/md0
-setquota -u uaux1 75000 150000 0 0 /dev/md0
+setquota -u $USERA 150000 300000 0 0 /dev/md0
+setquota -u $USERB 75000 150000 0 0 /dev/md0
