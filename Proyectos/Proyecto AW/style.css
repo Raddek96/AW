@@ -8,14 +8,20 @@ header {
     text-align: center;
 }
 
+
 div.mainContainer {
     display: flex;
     border: 2px solid black;
 }
 
 div.flexChilds {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    outline: 2px solid black;
+}
+
+div.flexChilds:hover {
+    cursor: pointer;
 }
 
 div.flexContainer {
@@ -23,7 +29,8 @@ div.flexContainer {
     width: 800px;
     height: 800px;
     border: 2px solid #000;
-    margin: 50px 50px;
+    top: 100px;
+    left: 100px;
     min-width: 100px;
     min-height: 100px;
     max-width: 800px;
@@ -37,10 +44,9 @@ div.options {
     width: 800px;
     height: 800px;
     border: 2px solid black;
-    /* margin: 50px 50px; */
     position: absolute;
-    top: 92px;
-    left: 1000px;
+    top: 100px;
+    right: 100px;
     text-align: center;
 }
 
