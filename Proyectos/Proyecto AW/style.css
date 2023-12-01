@@ -15,8 +15,8 @@ div.mainContainer {
 }
 
 div.flexChilds {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     outline: 2px solid black;
 }
 
