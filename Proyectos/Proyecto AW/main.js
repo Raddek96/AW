@@ -12,7 +12,6 @@ const HEIGHT = document.getElementById("height");
 const CAJAS = document.getElementsByClassName("flexChilds");
 const MINUS = document.getElementById("minus");
 const PLUS = document.getElementById("plus");
-let cajasVisibles = 3;
 const selectFlexDirection = document.getElementById("flex-direction");
 const selectFlexWrap = document.getElementById("flex-wrap");
 const selectJustifyContent = document.getElementById("justify-content");
@@ -21,10 +20,48 @@ const arrayCajas = Array.from(CAJAS);
 const buttonReset = document.getElementById("reset");
 const witdthBox = document.getElementById("widthBox");
 const heightBox = document.getElementById("heightBox");
+const toogleSun = document.getElementById("sun");
+const H2 = document.getElementsByTagName("h2");
+const arrayH2 = Array.from(H2);
+const LABEL = document.getElementsByTagName("label");
+const arrayLabel = Array.from(LABEL);
+let modoOscuro = false;
+let cajasVisibles = 3;
+
+
 
 
 
 //Funciones
+
+//Cambiar entre modo claro y modo oscuro
+function cambiarModo() {
+  if (modoOscuro) {
+    document.body.style.background = "#fff";
+    toogleSun.classList.remove("fa-sun");
+    toogleSun.classList.add("fa-moon");
+    arrayH2.forEach(h2 => {
+      h2.style.color = "#000";
+    });
+    arrayLabel.forEach(label => {
+      label.style.color = "#000";
+    })
+
+  } else {
+    document.body.style.background = "#252525";
+    toogleSun.classList.remove("fa-moon");
+    toogleSun.classList.add("fa-sun");
+    arrayH2.forEach(h2 => {
+      h2.style.color = "#fff";
+    });
+
+    arrayLabel.forEach(label => {
+      label.style.color = "#fff";
+    })
+  }
+  modoOscuro = !modoOscuro;
+}
+
 
 // Genera un código con formato rgb aleatorio
 function generarColorAleatorio() {
@@ -40,34 +77,34 @@ function generarColorAleatorio() {
 
 
 //Modifica el tamaño del contenedor padre o de los contenedores hijos
-function modificarTamaño(valor, size, boolean){
+function modificarTamaño(valor, size, boolean) {
   if (!isNaN(valor)) {
-     var valorValue = parseFloat(valor);
-     if(boolean === "true"){
+    var valorValue = parseFloat(valor);
+    if (boolean === "true") {
 
-    if(size === "width") {
-      FLEXCONTAINER.style.width = valorValue + "px";
-      WIDTH.placeholder = "";
-  } else if (size === "height") {
-    FLEXCONTAINER.style.height = valorValue + "px";
-    HEIGHT.placeholder = "";
-  }
-} else {
-  arrayCajas.forEach(function(caja) {
-    if(size === "width") {
-      caja.style.width = valorValue + "px";
-      witdthBox.placeholder = "";
-  } else if (size === "height") {
-    caja.style.height = valorValue + "px";
-    heightBox.placeholder = "";
-  }
-  });
-
-}
+      if (size === "width") {
+        FLEXCONTAINER.style.width = valorValue + "px";
+        WIDTH.placeholder = "";
+      } else if (size === "height") {
+        FLEXCONTAINER.style.height = valorValue + "px";
+        HEIGHT.placeholder = "";
+      }
     } else {
-      console.error("Se ha introducido un valor no numérico");
+      arrayCajas.forEach(function (caja) {
+        if (size === "width") {
+          caja.style.width = valorValue + "px";
+          witdthBox.placeholder = "";
+        } else if (size === "height") {
+          caja.style.height = valorValue + "px";
+          heightBox.placeholder = "";
+        }
+      });
+
     }
-    
+  } else {
+    console.error("Se ha introducido un valor no numérico");
+  }
+
 }
 
 //Cambiar propiedades flex del contenedor padre
@@ -76,7 +113,7 @@ function cambiarPropiedadFlex(propiedad, valor) {
 }
 
 //Habilitar o deshabilitar AlignContent
-function boolAlignContent(){
+function boolAlignContent() {
   if (selectFlexWrap.value === "wrap") {
     alignContent.disabled = false;
   } else {
@@ -184,3 +221,8 @@ buttonReset.addEventListener("click", () => {
   });
   window.location.reload();
 });
+
+//Ejecuta la función cambiarModo()
+toogleSun.addEventListener("click", () => {
+  cambiarModo();
+})

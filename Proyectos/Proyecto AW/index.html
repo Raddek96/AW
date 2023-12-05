@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -8,8 +9,11 @@
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <script src="https://kit.fontawesome.com/2a92e1eb15.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <header><h1>FLEX</h1></header>
+    <header>
+        <h1>FLEX</h1>
+    </header>
     <main>
         <div class="flexContainer" id="flexContainer">
             <div class="flexChilds">1</div>
@@ -23,17 +27,15 @@
             <div class="flexChilds">9</div>
         </div>
         <div class="options">
-            <h2>Tamaño de la caja padre</h2>
-            <div class="sizeFlexContainer">
-                
-                <div>
+            <h2 class="">Tamaño de la caja padre</h2>
+            <i class="fa-solid fa-moon" id="sun"></i>
+            <div>
                 <label for="width">Anchura (px)</label><br>
-                <input  id="width" type="text" placeholder="800">
-                </div>
-                <div>
+                <input id="width" type="text" placeholder="800">
+            </div>
+            <div>
                 <label for="height">Altura (px)</label><br>
                 <input id="height" type="text" placeholder="800">
-                </div>
             </div>
             <h2>Número de cajas </h2>
             <i class="fa-solid fa-minus" id="minus"></i>
@@ -51,7 +53,7 @@
                 <option value="wrap">wrap</option>
             </select>
             <h2>Justify Content</h2>
-            <select  id="justify-content">
+            <select id="justify-content">
                 <option selected value="flex-start">flex-start</option>
                 <option value="center">center</option>
                 <option value="flex-end">flex-end</option>
@@ -68,7 +70,7 @@
             </select>
 
             <h2>Align Content</h2>
-            <select disabled  id="align-content">
+            <select disabled id="align-content">
                 <option selected value="flex-start">flex-start</option>
                 <option value="center">center</option>
                 <option value="flex-end">flex-end</option>
@@ -79,13 +81,13 @@
             <h2>Tamaño de las cajas</h2>
             <div>
                 <label for="widthBox">Anchura (px)</label><br>
-                <input  id="widthBox" type="text" placeholder="100">
-                </div>
-                <div>
+                <input id="widthBox" type="text" placeholder="100">
+            </div>
+            <div>
                 <label for="heightBox">Altura (px)</label><br>
                 <input id="heightBox" type="text" placeholder="100">
-                </div>
-                <h2>Reset</h2>
+            </div>
+            <h2>Reset</h2>
             <button id="reset">Reset</button>
         </div>
     </main>
@@ -98,4 +100,5 @@
 
     <script src='main.js'></script>
 </body>
+
 </html>

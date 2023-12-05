@@ -38,6 +38,7 @@ div.flexContainer {
     align-items: flex-start;
     align-content: flex-start;
     position: absolute;
+    
 }
 
 div.options {
@@ -48,6 +49,8 @@ div.options {
     top: 100px;
     right: 100px;
     text-align: center;
+    border-radius: 10px;
+    
 }
 
 div.sizeFlexContainer {
@@ -74,6 +77,14 @@ i.fa-minus {
 
 i.fa-plus {
     background-color: green;
+}
+
+i.fa-sun, i.fa-moon {
+    border: none;
+    position: absolute;
+    scale: 1.4;
+    right: 10px;
+    top: 10px;
 }
 
 div.flexChilds:nth-child(1) {
