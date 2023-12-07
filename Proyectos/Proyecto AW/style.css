@@ -89,42 +89,51 @@ i.fa-sun, i.fa-moon {
 
 div.flexChilds:nth-child(1) {
     background-color: #FF0000;
+    order: 1;
 }
 
 div.flexChilds:nth-child(2) {
     background-color: #00FF00;
+    order: 2;
 }
 
 div.flexChilds:nth-child(3) {
     background-color: #0000FF;
+    order: 3;
 }
 
 div.flexChilds:nth-child(4) {
     background-color: #FFFF00;
     display: none;
+    order: 4;
 }
 
 div.flexChilds:nth-child(5) {
     background-color: #FFC0CB;
     display: none;
+    order: 5;
 }
 
 div.flexChilds:nth-child(6) {
     background-color: #800080;
     display: none;
+    order: 6;
 }
 
 div.flexChilds:nth-child(7) {
     background-color: #FFA500;
     display: none;
+    order: 7;
 }
 
 div.flexChilds:nth-child(8) {
     background-color: #808080;
     display: none;
+    order: 8;
 }
 
 div.flexChilds:nth-child(9) {
     background-color: #00FFFF;
     display: none;
+    order: 9;
 }

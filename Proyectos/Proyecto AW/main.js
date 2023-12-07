@@ -25,14 +25,15 @@ const H2 = document.getElementsByTagName("h2");
 const arrayH2 = Array.from(H2);
 const LABEL = document.getElementsByTagName("label");
 const arrayLabel = Array.from(LABEL);
+const orderSelect = document.getElementsByClassName("orderSelect");
+const arrayOrderSelect = Array.from(orderSelect);
 let modoOscuro = false;
 let cajasVisibles = 3;
 
 
 
-
-
 //Funciones
+
 
 //Cambiar entre modo claro y modo oscuro
 function cambiarModo() {
@@ -173,6 +174,7 @@ selectFlexWrap.addEventListener("change", () => {
 arrayCajas.forEach(caja => {
   caja.addEventListener("click", () => {
     caja.style.background = generarColorAleatorio();
+
   })
 });
 
@@ -226,3 +228,12 @@ buttonReset.addEventListener("click", () => {
 toogleSun.addEventListener("click", () => {
   cambiarModo();
 })
+
+ // Cambia el orden de los flexChilds
+
+ arrayOrderSelect.forEach((orderSelect, index) => {
+  orderSelect.addEventListener("click", () => {
+    const selectedOrder = orderSelect.value;
+    arrayCajas[index].style.order = selectedOrder;
+  });
+});
