@@ -50,7 +50,13 @@ div.options {
     right: 100px;
     text-align: center;
     border-radius: 10px;
+    box-shadow: 0 0 20px #000;
+    transition: scale 0.3s;
     
+}
+
+div.options:hover {
+    scale: 1.01;
 }
 
 div.sizeFlexContainer {
