@@ -231,9 +231,14 @@ toogleSun.addEventListener("click", () => {
 
  // Cambia el orden de los flexChilds
 
+
+ //No funciona
  arrayOrderSelect.forEach((orderSelect, index) => {
   orderSelect.addEventListener("click", () => {
     const selectedOrder = orderSelect.value;
+    const temp = arrayCajas[index].style.order;
     arrayCajas[index].style.order = selectedOrder;
+    arrayCajas[selectedOrder].style.order = temp;
+    
   });
 });
