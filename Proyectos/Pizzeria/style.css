@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    color: #fff;
 
 }
 
@@ -36,23 +37,41 @@ a:hover {
     
 }
 
-div.main {
-    display: flex;
-    background-color: #252525;
+section.main {
     margin-top: 100px;
-    justify-content: space-evenly;
-    
+    width: 100vw;
+    height: 700px;
+    background-color: #252525;
+    text-align: center;
     
 }
 
-nav {
+
+article.mainArticle {
+    justify-content: center;
     display: flex;
-    flex-direction: column;
-    gap: 2em;
-    font-weight: bold;
-
+}
+div.info {
+    margin-top: 100px;
+    border: 1px solid #fff;
+    width: 800px;
 }
 
-img.pizzas {
+img.image {
     width: 500px;
+    height: 500px;
+}
+
+article.select {
+    margin-top: 80px;
+    
+}
+a.pizzas {
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+a.selected {
+    background-color: grey;
+    border: 3px solid #000;
 }
