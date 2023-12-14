@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div.superior {
+    display: flex;
+    margin: 10px 0 0 10px;
+   
+}
+
+ div.rojo {
+    background-color: #EF2B2D;
+    height: 250px;
+
+ }
+ div.azul {
+    background-color: #002868;
+    
+ }
+
+
+ div.elemento1 {
+    width: 400px;
+ }
+
+div.elemento2{
+    height: 250px;
+    width: 150px;
+    margin: 0 50px;
+}
+
+ div.elemento3 {
+    width: 900px;
+ }
+
+div.medio {
+    display: flex;
+    margin: 0 0 0 10px;
+}
+
+ div.elemento4 {
+    width: 400px;
+    height: 150px;
+    margin: 50px 0;
+ }
+ 
+ div.elemento5 {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 180px;
+ }
+
+ div.cruzSuperior{
+    background-color: #002868;
+    width: 150px;
+    height: 50px;
+    margin: 0 50px;
+ }
+
+ div.cruzMedio {
+    background-color: #002868;
+    width: 280px;
+    height: 150px;
+}
+
+div.cruzInferior{
+    background-color: #002868;
+    width: 150px;
+    height: 100px;
+    margin: 0 50px;
+ }
+
+ div.elemento6 {
+    width: 900px;
+    height: 150px;
+    margin: 50px 0 50px 70px;
+ }
+ 
+ div.inferior {
+    display: flex;
+    margin: -50px 0 0 10px;
+ }
+
+ div.elemento7 {
+    width: 400px;
+ }
+
+div.elemento8{
+    height: 250px;
+    width: 150px;
+    margin: 0 50px;
+}
+
+ div.elemento9 {
+    width: 900px;
+ }

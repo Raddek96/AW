@@ -1,0 +1,69 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+div.superior {
+display: flex;
+flex-direction: row;
+height: 55vh;
+width: 100vw;
+}
+
+div.containerEstrellas {
+    background-color:#325f92;
+    height: 100%;
+    width: 760px;
+    padding: 20px;
+}
+
+div.lineasDerecha {
+    height: 100%;
+    width: 1140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.lineaRoja {
+    width: 100%;
+    height: 66.5px;
+    background-color: #c53939;
+}
+
+div.inferior {
+    height: 45vh;
+    width: 100vw;
+}
+
+div.lineaBlanca {
+    width: 100%;
+    height: 66.5px;
+    background-color: #fff;
+    
+}
+
+div.star {
+    height: 5.55556vh;
+    flex: 0;
+      flex-basis: 0%;
+    flex-basis: 50px;
+    margin: 0 0%;
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/211696/star.svg") no-repeat center;
+  }
+
+  div.estrellasImpar {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+
+  div.estrellasPar {
+    display: flex;
+    justify-content: space-evenly;
+    
+  }

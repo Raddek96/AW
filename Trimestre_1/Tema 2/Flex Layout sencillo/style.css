@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+section.encabezado {
+    background-color: lightcyan;
+    text-align: center;
+    padding: 25px;
+    
+}
+
+main {
+    display: flex;
+}
+
+section.corpo {
+    background-color: lightseagreen;
+    flex-grow: 4;
+    text-align: center;
+    padding: 220px 0;
+}
+
+section.dereita {
+    background-color: lightcoral;
+    text-align: center;
+    flex-grow: 2;
+    padding: 200px 0;
+}
+
+section.pe {
+    background-color: lightgrey;
+    text-align: center;
+    padding: 10px;
+}

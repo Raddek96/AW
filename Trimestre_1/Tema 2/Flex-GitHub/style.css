@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+
+div.main {
+    display: flex;
+    background-color: bisque;
+    width: 700px;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px 0 0 20px;
+    height: 800px;
+    
+}
+
+img {
+    width: 200px;
+    padding: 10px;
+}
+
+div.linea01 {
+    display: flex;
+    background-color: aqua;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+div.linea02 {
+    display: flex;
+    background-color: darkolivegreen;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+div.linea03 {
+    display: flex;
+    background-color: rgb(150, 150, 202);
+    justify-content: space-around;
+    margin: 10px;
+}
+
