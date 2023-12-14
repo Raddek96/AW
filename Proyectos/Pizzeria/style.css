@@ -3,16 +3,30 @@
     margin: 0;
     box-sizing: border-box;
     color: #fff;
+    text-shadow: 20px 20px 20px #000;
+}
 
+
+hr {
+    color: #000;
+}
+
+span.red {
+    color: #f00;
 }
 
 header.mainHeader {
     background: #252525;
     width: 100vw;
     height: auto;
+    
 
 }
 
+video.video {
+    border-radius: 10px;
+    box-shadow: 0 0 30px #000;
+}
 
 header.mainHeader ul {
     display: flex;
@@ -26,19 +40,60 @@ img.logo {
     width: 100px;
 }
 
-a {
+a.mainMenu {
     color: #fff;
     text-decoration: none;
     transition: all 0.2s;
+    font-size: 1.4em;
+    /* border: 1px solid white; */
+    padding: 37px 30px;
 }
 
 a:hover {
-    color: burlywood;
+    /* color: burlywood; */
+    background: #414141;
+    
     
 }
 
+section#inicio {
+    width: 100vw;
+    height: 700px;
+    background-color: #393939;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+}
+
+
+h1.title {
+    font-size: 5em;
+    padding-top: 100px;
+    
+    margin-top: -200px;
+}
+
+span._{
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        visibility: hidden;
+    }
+}
+
+
+i.fa-github {
+    scale: 5;
+    margin: 30px;
+}
+
+
+
 section.main {
-    margin-top: 100px;
+    
     width: 100vw;
     height: 700px;
     background-color: #252525;
@@ -53,7 +108,8 @@ article.mainArticle {
 }
 div.info {
     margin-top: 100px;
-    border: 1px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000;
     width: 800px;
 }
 
@@ -74,4 +130,13 @@ a.pizzas {
 a.selected {
     background-color: grey;
     border: 3px solid #000;
+}
+
+footer {
+    width: 100vw;
+    height: 100px;
+    background-color: #414141;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
