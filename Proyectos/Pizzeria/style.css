@@ -40,6 +40,11 @@ img.logo {
     width: 100px;
 }
 
+img.logo:hover {
+    cursor: pointer;
+    
+}
+
 a.mainMenu {
     color: #fff;
     text-decoration: none;
@@ -128,8 +133,9 @@ a.pizzas {
 }
 
 a.selected {
-    background-color: grey;
-    border: 3px solid #000;
+    background-color: #414141;
+    box-shadow: 0 0 5px #fff;
+    border-radius: 10px;
 }
 
 footer {
