@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #000;
+    
+}
+
+header a {
+    text-decoration: none;
+    padding: 30px 0;
+    color: #fff;
+}
+
+header a:hover{
+    color: #F00;
+}
+
+header img {
+    width: 50px;
+}
+
+section.firstSection {
+    text-align: center;
+}
+
+section.firstSection h1 {
+    margin: 30px;
+    font-size: 2em;
+}
+span.red {
+    color: #f00;
+}
+
+section.firstSection p {
+    font-size: 1.2em;
+}
+
+section.firstSection img {
+    margin: 20px;
+    border-radius: 10px;
+}
+
+section.secondSection {
+    text-align: center;
+}

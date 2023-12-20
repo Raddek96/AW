@@ -57,6 +57,7 @@ a.mainMenu {
 a:hover {
     /* color: burlywood; */
     background: #414141;
+    border-radius: 10px;
     
     
 }
