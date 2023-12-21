@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header.main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(img/bg-1.jpeg);
+    background-size: cover;
+    height: 100vh;
+}
+
+
+/* Revisar */
+header.main-header::before {
+    content: '';
+    background: rgba(0, 0, 0, .6);
+    ;
+}
+
+div.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(120, 120, 120, .7);
+    
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+div.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+    margin: 25px;
+}
+
+div.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    transition: all 0.1s;
+}
+
+div.navbar a:hover {
+    border-bottom: 3px solid gold;
+}
+
+h1.brand {
+    color: #fff;
+    margin: 20px;
+}
+h1.brand span {
+    color: gold;
+}
+
+
+div.content {
+    width: 30%;
+    height: 300px;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+div.content p {
+    font-size: 1.4em;
+}
+
+
+a.btn-primary {
+    background-color: #0af;
+    color: #fff;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 160px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+a.btn-primary:hover{
+    opacity: 0.9;
+}
+
+div.flex-items {
+    display: flex;
+    text-align: center;
+}
+
+div.flex-items i {
+    border-radius: 50%;
+    background-color: #0af;
+    padding: 10px;
+    margin: 20px;
+    color: #fff;
+}
+
+section.about {
+    width: 100vw;
+}
+
+div.row:nth-child(1) {
+    display: flex;
+}
+
+div.row img {
+    width: 50vw;
+}
+
+div.column {
+    display: flex;
+    align-items: center;
+    background-color: rgba(100, 100, 100, .6);
+    width: 50vw;
+    color: white;
+}
+
+
+div.column-2 h2, div.column-2 p, div.column-2 button {
+    margin: 10px 0px 10px 30px;
+}
+
+div.column-2 button {
+    background: transparent;
+    color: #fff;
+    padding:  10px 20px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+
+}
+
+div.column-2 button:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+header.section-header {
+    text-align: center;
+}
+
+section#gallery .row {
+    display: flex;
+}
+
+section#gallery .column {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+section#gallery img {
+    width: 470px;
+    margin: 5px 5px;
+}
+
+section#gallery img:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
+
+
+
+section#rooms {
+    text-align: center;
+}
+
+section#rooms img {
+    width: 600px;
+    margin: 5px 20px;
+}
+
+div.card-body {
+    color: #fff;
+    background-color: gold;
+    margin: 5px 20px;
+    padding: 30px 0;
+}
+
+
+section#teams {
+    background-color: #eee;
+
+}
+
+section#teams img {
+    border-radius: 50%;
+    margin: 10px;
+    width: 600px;
+}
